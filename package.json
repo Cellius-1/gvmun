@@ -1,0 +1,27 @@
+{
+  "name": "gvmun-website",
+  "version": "1.0.0",
+  "description": "Global Virtual Model United Nations Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Ready for deployment to any static hosting service'"
+  },
+  "keywords": [
+    "model-un",
+    "gvmun",
+    "united-nations",
+    "conference",
+    "website"
+  ],
+  "author": "GVMUN Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cellius-1/gvmun.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
