@@ -733,8 +733,34 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
-    z-index: 20;
+    z-index: 1100;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+/* Ensure bio appears below for team members in first row */
+.team-grid .team-member:nth-child(1) .member-bio,
+.team-grid .team-member:nth-child(2) .member-bio,
+.team-grid .team-member:nth-child(3) .member-bio {
+    bottom: auto;
+    top: 100%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.team-grid .team-member:nth-child(1):hover .member-bio,
+.team-grid .team-member:nth-child(2):hover .member-bio,
+.team-grid .team-member:nth-child(3):hover .member-bio {
+    transform: translateX(-50%) translateY(20px);
+}
+
+/* Arrow pointing up for first row bios */
+.team-grid .team-member:nth-child(1) .member-bio::after,
+.team-grid .team-member:nth-child(2) .member-bio::after,
+.team-grid .team-member:nth-child(3) .member-bio::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: rgba(26, 26, 26, 0.95);
 }
 
 .member-bio::after {
@@ -745,13 +771,6 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     transform: translateX(-50%);
     border: 8px solid transparent;
     border-top-color: rgba(26, 26, 26, 0.95);
-}
-
-.member-bio p {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: white;
 }
 
 .team-member:hover .member-bio {
@@ -788,6 +807,23 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
         gap: 24px;
     }
     
+    /* Reset first row positioning on mobile */
+    .team-grid .team-member:nth-child(1) .member-bio,
+    .team-grid .team-member:nth-child(2) .member-bio,
+    .team-grid .team-member:nth-child(3) .member-bio {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        top: auto;
+        max-width: none;
+        width: auto;
+        transform: none;
+        border-radius: 16px;
+        padding: 20px;
+        font-size: 1rem;
+    }
+    
     .member-bio {
         position: fixed;
         bottom: 20px;
@@ -802,11 +838,17 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
         font-size: 1rem;
     }
     
-    .member-bio::after {
+    .member-bio::after,
+    .team-grid .team-member:nth-child(1) .member-bio::after,
+    .team-grid .team-member:nth-child(2) .member-bio::after,
+    .team-grid .team-member:nth-child(3) .member-bio::after {
         display: none;
     }
     
-    .team-member:hover .member-bio {
+    .team-member:hover .member-bio,
+    .team-grid .team-member:nth-child(1):hover .member-bio,
+    .team-grid .team-member:nth-child(2):hover .member-bio,
+    .team-grid .team-member:nth-child(3):hover .member-bio {
         transform: none;
     }
     
