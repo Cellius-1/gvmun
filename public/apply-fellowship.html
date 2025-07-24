@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Fellowship - GVMUN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="logo">
+                    <span class="logo-text">GVMUN</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="get-involved.html" class="nav-link">Get Involved</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Apply for Fellowship</h1>
+            <p>Join our prestigious leadership program for exceptional students</p>
+            <div class="header-cta">
+                <a href="get-involved.html" class="cta-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Get Involved
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="application-overview">
+        <div class="container">
+            <div class="application-content">
+                <div class="application-info">
+                    <div class="application-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="GVMUN Fellowship Program">
+                    </div>
+                    <div class="program-details">
+                        <h2>GVMUN Fellowship Program</h2>
+                        <p class="program-description">
+                            Our prestigious fellowship program is designed for exceptional students who demonstrate outstanding 
+                            leadership potential and want to take on significant responsibilities in global advocacy and Model UN 
+                            education. Fellows lead major initiatives, conduct research, and help shape the future of GVMUN.
+                        </p>
+                        
+                        <div class="program-highlights">
+                            <h3>Fellowship Benefits</h3>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Lead research projects and policy initiatives</li>
+                                <li><i class="fas fa-star"></i> Mentor interns and other participants</li>
+                                <li><i class="fas fa-star"></i> Present at international conferences</li>
+                                <li><i class="fas fa-star"></i> Access to exclusive leadership training</li>
+                                <li><i class="fas fa-star"></i> Direct collaboration with Secretariat</li>
+                                <li><i class="fas fa-star"></i> Publication opportunities in GVMUN research</li>
+                                <li><i class="fas fa-star"></i> Letter of recommendation upon completion</li>
+                            </ul>
+                        </div>
+
+                        <div class="program-requirements">
+                            <h3>Program Details</h3>
+                            <div class="requirement-grid">
+                                <div class="requirement-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <strong>Duration</strong>
+                                        <p>Fall 2025 Program (September - December)</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <strong>Time Commitment</strong>
+                                        <p>15-20 hours per week</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="fas fa-award"></i>
+                                    <div>
+                                        <strong>Prerequisites</strong>
+                                        <p>Previous MUN experience strongly preferred</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <strong>Selection</strong>
+                                        <p>Highly competitive - limited positions available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="application-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Fellowship Application Form</h2>
+                    <p>This is a competitive program. Please provide detailed, thoughtful responses to all questions.</p>
+                </div>
+
+                <form class="application-form" id="fellowship-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <!-- ...existing code... (same personal info fields as internship) -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age *</label>
+                                <input type="number" id="age" name="age" min="16" max="30" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Educational & Professional Background</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="education-level">Current Education Level *</label>
+                                <select id="education-level" name="educationLevel" required>
+                                    <option value="">Select your level</option>
+                                    <option value="high-school-senior">High School (Senior Year)</option>
+                                    <option value="undergraduate">Undergraduate</option>
+                                    <option value="graduate">Graduate</option>
+                                    <option value="recent-graduate">Recent Graduate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="school">School/University *</label>
+                                <input type="text" id="school" name="school" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-of-study">Field of Study *</label>
+                            <input type="text" id="field-of-study" name="fieldOfStudy" required placeholder="e.g., International Relations, Political Science, Law, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gpa">GPA/Academic Standing</label>
+                            <input type="text" id="gpa" name="gpa" placeholder="Optional: Your current GPA or academic standing">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="honors">Academic Honors & Awards</label>
+                            <textarea id="honors" name="honors" rows="3" placeholder="List any relevant academic honors, scholarships, or awards"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Model UN Experience</h3>
+                        <div class="form-group">
+                            <label for="mun-experience-level">MUN Experience Level *</label>
+                            <select id="mun-experience-level" name="munExperienceLevel" required>
+                                <option value="">Select your experience level</option>
+                                <option value="intermediate">Intermediate (3-5 conferences)</option>
+                                <option value="advanced">Advanced (6-10 conferences)</option>
+                                <option value="expert">Expert (10+ conferences)</option>
+                                <option value="chair-staff">Chair/Staff experience</option>
+                                <option value="secretariat">Secretariat experience</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mun-positions">MUN Positions Held *</label>
+                            <textarea id="mun-positions" name="munPositions" rows="4" required placeholder="List conferences attended, positions held (delegate, chair, director, etc.), and any awards received"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mun-achievements">Notable MUN Achievements</label>
+                            <textarea id="mun-achievements" name="munAchievements" rows="3" placeholder="Describe your most significant MUN accomplishments, awards, or recognition"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Leadership & Experience</h3>
+                        <div class="form-group">
+                            <label for="leadership-roles">Leadership Positions *</label>
+                            <textarea id="leadership-roles" name="leadershipRoles" rows="4" required placeholder="Describe leadership positions you've held in school, work, volunteer organizations, or other activities"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-experience">Project Management Experience</label>
+                            <textarea id="project-experience" name="projectExperience" rows="4" placeholder="Describe any experience managing projects, events, or initiatives"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="research-experience">Research & Writing Experience</label>
+                            <textarea id="research-experience" name="researchExperience" rows="4" placeholder="Describe any research projects, publications, or significant writing experience"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Fellowship Application Essays</h3>
+                        <div class="form-group">
+                            <label for="motivation-essay">Why do you want to be a GVMUN Fellow? *</label>
+                            <textarea id="motivation-essay" name="motivationEssay" rows="6" required placeholder="Describe your motivation for applying to this competitive program and what you hope to achieve (400-500 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="leadership-vision">Describe your leadership philosophy and vision. *</label>
+                            <textarea id="leadership-vision" name="leadershipVision" rows="6" required placeholder="How do you approach leadership? What kind of leader are you or aspire to be? (300-400 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-proposal">Propose a project or initiative you would lead as a Fellow. *</label>
+                            <textarea id="project-proposal" name="projectProposal" rows="7" required placeholder="Describe a specific project, research initiative, or program you would like to develop and lead during your fellowship. Include objectives, methodology, and expected outcomes (500-600 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="global-challenge">What global challenge do you believe deserves more attention? *</label>
+                            <textarea id="global-challenge" name="globalChallenge" rows="5" required placeholder="Identify and analyze a global issue you're passionate about. How would you address it through the UN framework? (300-400 words)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Skills & Expertise</h3>
+                        <div class="form-group">
+                            <label for="expertise-areas">Areas of Expertise *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="international-relations">
+                                    <span class="checkmark"></span>
+                                    International Relations & Diplomacy
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="policy-analysis">
+                                    <span class="checkmark"></span>
+                                    Policy Analysis & Research
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="conflict-resolution">
+                                    <span class="checkmark"></span>
+                                    Conflict Resolution & Peacebuilding
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="sustainable-development">
+                                    <span class="checkmark"></span>
+                                    Sustainable Development
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="human-rights">
+                                    <span class="checkmark"></span>
+                                    Human Rights
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="economic-development">
+                                    <span class="checkmark"></span>
+                                    Economic Development
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="climate-change">
+                                    <span class="checkmark"></span>
+                                    Climate Change & Environment
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="expertiseAreas" value="security-studies">
+                                    <span class="checkmark"></span>
+                                    Security Studies
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="languages">Languages Spoken</label>
+                            <input type="text" id="languages" name="languages" placeholder="List languages and proficiency levels (e.g., English (Native), Spanish (Fluent), French (Conversational))">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="technical-skills">Technical Skills</label>
+                            <textarea id="technical-skills" name="technicalSkills" rows="3" placeholder="List any relevant technical skills (research tools, software, etc.)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>References & Documents</h3>
+                        <div class="form-group">
+                            <label for="reference1">Academic Reference *</label>
+                            <input type="text" id="reference1" name="reference1" required placeholder="Name and email of an academic reference (professor, teacher, etc.)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reference2">Professional/Leadership Reference *</label>
+                            <input type="text" id="reference2" name="reference2" required placeholder="Name and email of someone who can speak to your leadership abilities">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resume">Resume/CV Upload *</label>
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            <small>Required: Upload your resume in PDF or Word format</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transcript">Unofficial Transcript</label>
+                            <input type="file" id="transcript" name="transcript" accept=".pdf">
+                            <small>Optional: Upload unofficial transcript (PDF only)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="writing-sample">Writing Sample</label>
+                            <input type="file" id="writing-sample" name="writingSample" accept=".pdf,.doc,.docx">
+                            <small>Optional: Upload a recent academic or professional writing sample</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="commitment-agreement" required>
+                                <span class="checkmark"></span>
+                                I understand this is a highly competitive program requiring significant time commitment (15-20 hours/week) and I am prepared to fulfill all fellowship responsibilities. *
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="accuracy-agreement" required>
+                                <span class="checkmark"></span>
+                                I confirm that all information provided is accurate and complete. I understand that false information may result in disqualification. *
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Fellowship Application
+                        </button>
+                        <p class="form-note">
+                            Fellowship applications undergo rigorous review. Interviews may be required for final candidates.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>By the GVMUN Secretariat</p>
+                    <p>GVMUN is a nonprofit organization fiscally sponsored by the Hack Foundation</p>
+                    <p>Contact us: <a href="mailto:gvmunsecretariat@gmail.com" style="color: #667eea; text-decoration: none;">gvmunsecretariat@gmail.com</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/gvmun_official/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GVModelUN" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@gvmunofficial?lang=en" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/official-gvmun/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

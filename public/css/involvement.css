@@ -1,0 +1,158 @@
+/* Get Involved Page Styles */
+.involvement-options {
+    padding: 120px 0;
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+
+.involvement-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 64px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.involvement-card {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e2e8f0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.involvement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.involvement-card:hover::before {
+    transform: scaleX(1);
+}
+
+.involvement-card:hover {
+    border-color: #667eea;
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(102, 126, 234, 0.2);
+    z-index: 10;
+}
+
+.involvement-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.involvement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.involvement-card:hover .involvement-image img {
+    transform: scale(1.05);
+}
+
+.involvement-content {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+}
+
+.involvement-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+}
+
+.involvement-description {
+    color: #64748b;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.involvement-highlights {
+    margin-bottom: 32px;
+}
+
+.involvement-highlights ul {
+    list-style: none;
+    padding: 0;
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.involvement-highlights li {
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.involvement-highlights li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.involvement-details {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 24px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+}
+
+.involvement-details p {
+    margin-bottom: 10px;
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.involvement-details p:last-child {
+    margin-bottom: 0;
+}
+
+.involvement-details strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.involvement-card .btn {
+    align-self: flex-start;
+    font-size: 1.125rem;
+    padding: 16px 32px;
+}
+
+.secretariat-card {
+    min-height: auto;
+}
+
+.secretariat-card .involvement-content {
+    padding: 48px;
+}

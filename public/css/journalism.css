@@ -1,0 +1,442 @@
+/* Journalism Page Styles - Modern Revamp */
+.journalism-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: calc(100vh - 200px);
+}
+
+.articles-showcase {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+/* Featured Article - Modern Design */
+.featured-article {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 32px rgba(102,126,234,0.10);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    width: 100%;
+    min-height: 400px;
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.featured-article:hover {
+    box-shadow: 0 12px 48px rgba(102,126,234,0.18);
+    transform: translateY(-2px) scale(1.01);
+}
+
+/* Article Image - Enhanced Styling */
+.article-image {
+    flex: 0 0 420px;
+    width: 420px;
+    height: 100%;
+    min-height: 400px;
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    border-radius: 0;
+}
+
+.featured-article:hover .article-image img {
+    transform: scale(1.03);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.07));
+    pointer-events: none;
+}
+
+/* Article Content - Flex Layout */
+.article-content {
+    flex: 1 1 0;
+    padding: 48px 48px 32px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.article-header {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Category Badge - Improved Style */
+.article-category-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 7px 18px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.15);
+    letter-spacing: 0.02em;
+}
+
+/* Meta Information - Streamlined */
+.article-meta {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    font-size: 0.98rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-item i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+/* Article Title - Enhanced Typography */
+.article-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+/* Article Excerpt */
+.article-excerpt {
+    margin-bottom: 24px;
+}
+
+.article-excerpt p {
+    font-size: 1.18rem;
+    color: #374151;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Full Article Content - Consistent Styling */
+.article-full-content {
+    margin-bottom: 24px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px;
+}
+
+.article-section {
+    margin-bottom: 20px;
+}
+
+.article-section h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 14px;
+}
+
+.article-section h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 3px;
+    height: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.article-section p {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.article-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Article Actions - Modern Layout */
+.article-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: auto;
+}
+
+/* Read More Button - Revamped Style */
+.read-more-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 2px 12px rgba(102,126,234,0.13);
+}
+
+.read-more-btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(102,126,234,0.18);
+}
+
+.read-more-btn.expanded {
+    background: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+    box-shadow: 0 2px 12px rgba(245,158,11,0.13);
+}
+
+.read-more-btn.expanded:hover {
+    background: linear-gradient(135deg, #eab308 0%, #d97706 100%);
+    box-shadow: 0 4px 16px rgba(245,158,11,0.18);
+}
+
+.read-more-btn i {
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+}
+
+/* Article Stats - Modern Design */
+.article-stats {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.article-stats .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #64748b;
+    font-size: 0.98rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #f8fafc;
+    transition: color 0.3s, background 0.3s;
+}
+
+.article-stats .stat-item:hover {
+    color: #667eea;
+    background: #eef2ff;
+}
+
+.article-stats .stat-item i {
+    font-size: 1rem;
+    color: #667eea;
+}
+
+/* No More Articles - Refined */
+.no-more-articles {
+    margin-top: 40px;
+    text-align: center;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    border: 1px dashed #d1d5db;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-articles-content i {
+    font-size: 2.5rem;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+}
+
+.no-articles-content h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.no-articles-content p {
+    color: #64748b;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+    .articles-showcase {
+        max-width: 100vw;
+        padding: 0 12px;
+    }
+    .featured-article {
+        flex-direction: column;
+        min-height: 0;
+    }
+    .article-image {
+        width: 100%;
+        min-height: 220px;
+        max-height: 320px;
+    }
+    .article-content {
+        padding: 32px 20px 24px 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .article-title {
+        font-size: 1.35rem;
+    }
+    .article-content {
+        padding: 20px 10px 16px 10px;
+    }
+    .article-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .article-meta {
+        gap: 10px;
+        font-size: 0.95rem;
+    }
+    .read-more-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1rem;
+        padding: 12px 10px;
+    }
+    .article-stats {
+        width: 100%;
+        justify-content: center;
+    }
+}
+    .article-section h4 {
+        font-size: 1.25rem;
+    }
+    
+    .article-section p {
+        font-size: 0.9375rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .article-actions {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .read-more-btn {
+        justify-content: center;
+        width: 100%;
+        font-size: 0.9375rem;
+        padding: 14px 20px;
+    }
+    
+    .article-stats {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .article-image {
+        height: 200px;
+    }
+    
+    .no-more-articles {
+        margin-top: 32px;
+        padding: 32px 20px;
+    }
+    
+    .no-articles-content i {
+        font-size: 2.5rem;
+    }
+    
+    .no-articles-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .no-articles-content p {
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-title {
+        font-size: 1.375rem;
+    }
+    
+    .article-section h4 {
+        font-size: 1.125rem;
+    }
+    
+    .read-more-btn {
+        font-size: 0.875rem;
+        padding: 12px 16px;
+    }
+    
+    .article-header {
+        padding: 16px 16px 0;
+    }
+    
+    .article-content {
+        padding: 20px 16px;
+    }
+}
+
+/* Additional fixes for specific issues */
+.article-preview {
+    width: 100%;
+    max-width: none;
+}
+
+.featured-article .article-image {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Remove any conflicting grid layouts */
+.articles-showcase {
+    display: block;
+}

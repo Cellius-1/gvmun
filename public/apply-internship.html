@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Internship - GVMUN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="logo">
+                    <span class="logo-text">GVMUN</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="get-involved.html" class="nav-link">Get Involved</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Apply for Internship</h1>
+            <p>Join our dynamic team and gain valuable experience in international relations</p>
+            <div class="header-cta">
+                <a href="get-involved.html" class="cta-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Get Involved
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="application-overview">
+        <div class="container">
+            <div class="application-content">
+                <div class="application-info">
+                    <div class="application-image">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop" alt="GVMUN Internship Program">
+                    </div>
+                    <div class="program-details">
+                        <h2>GVMUN Internship Program</h2>
+                        <p class="program-description">
+                            Our internship program offers students a unique opportunity to gain hands-on experience in 
+                            international relations, event management, and diplomatic engagement. Work directly with our 
+                            experienced secretariat team on real-world projects that impact thousands of delegates worldwide.
+                        </p>
+                        
+                        <div class="program-highlights">
+                            <h3>What You'll Gain</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Direct mentorship from experienced team members</li>
+                                <li><i class="fas fa-check"></i> Certificate of completion for your portfolio</li>
+                                <li><i class="fas fa-check"></i> Networking opportunities with global delegates</li>
+                                <li><i class="fas fa-check"></i> Portfolio development and career guidance</li>
+                                <li><i class="fas fa-check"></i> Real-world project management experience</li>
+                                <li><i class="fas fa-check"></i> Leadership development opportunities</li>
+                            </ul>
+                        </div>
+
+                        <div class="program-requirements">
+                            <h3>Program Details</h3>
+                            <div class="requirement-grid">
+                                <div class="requirement-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <strong>Duration</strong>
+                                        <p>Fall 2025 Program (September - December)</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <strong>Time Commitment</strong>
+                                        <p>10-15 hours per week</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div>
+                                        <strong>Eligibility</strong>
+                                        <p>High school or university students</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="fas fa-globe"></i>
+                                    <div>
+                                        <strong>Location</strong>
+                                        <p>Remote/Virtual collaboration</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="application-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Internship Application Form</h2>
+                    <p>Please fill out all required fields. Applications are reviewed on a rolling basis.</p>
+                </div>
+
+                <form class="application-form" id="internship-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="timezone">Time Zone *</label>
+                                <select id="timezone" name="timezone" required>
+                                    <option value="">Select your timezone</option>
+                                    <option value="UTC-12">UTC-12 (Baker Island)</option>
+                                    <option value="UTC-11">UTC-11 (Hawaii)</option>
+                                    <option value="UTC-10">UTC-10 (Alaska)</option>
+                                    <option value="UTC-9">UTC-9 (Pacific)</option>
+                                    <option value="UTC-8">UTC-8 (Mountain)</option>
+                                    <option value="UTC-7">UTC-7 (Central)</option>
+                                    <option value="UTC-6">UTC-6 (Eastern)</option>
+                                    <option value="UTC-5">UTC-5 (Atlantic)</option>
+                                    <option value="UTC-4">UTC-4 (Venezuela)</option>
+                                    <option value="UTC-3">UTC-3 (Argentina)</option>
+                                    <option value="UTC-2">UTC-2 (Mid-Atlantic)</option>
+                                    <option value="UTC-1">UTC-1 (Azores)</option>
+                                    <option value="UTC+0">UTC+0 (London)</option>
+                                    <option value="UTC+1">UTC+1 (Berlin)</option>
+                                    <option value="UTC+2">UTC+2 (Cairo)</option>
+                                    <option value="UTC+3">UTC+3 (Moscow)</option>
+                                    <option value="UTC+4">UTC+4 (Dubai)</option>
+                                    <option value="UTC+5">UTC+5 (Karachi)</option>
+                                    <option value="UTC+6">UTC+6 (Dhaka)</option>
+                                    <option value="UTC+7">UTC+7 (Bangkok)</option>
+                                    <option value="UTC+8">UTC+8 (Beijing)</option>
+                                    <option value="UTC+9">UTC+9 (Tokyo)</option>
+                                    <option value="UTC+10">UTC+10 (Sydney)</option>
+                                    <option value="UTC+11">UTC+11 (Solomon Islands)</option>
+                                    <option value="UTC+12">UTC+12 (New Zealand)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Educational Background</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="education-level">Current Education Level *</label>
+                                <select id="education-level" name="educationLevel" required>
+                                    <option value="">Select your level</option>
+                                    <option value="high-school">High School</option>
+                                    <option value="undergraduate">Undergraduate</option>
+                                    <option value="graduate">Graduate</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="school">School/University *</label>
+                                <input type="text" id="school" name="school" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-of-study">Field of Study</label>
+                            <input type="text" id="field-of-study" name="fieldOfStudy" placeholder="e.g., International Relations, Political Science, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="graduation-year">Expected Graduation Year</label>
+                            <input type="number" id="graduation-year" name="graduationYear" min="2024" max="2030">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Experience & Interests</h3>
+                        <div class="form-group">
+                            <label for="mun-experience">Model UN Experience</label>
+                            <select id="mun-experience" name="munExperience">
+                                <option value="">Select your experience level</option>
+                                <option value="none">No prior MUN experience</option>
+                                <option value="beginner">Beginner (1-2 conferences)</option>
+                                <option value="intermediate">Intermediate (3-5 conferences)</option>
+                                <option value="advanced">Advanced (6+ conferences)</option>
+                                <option value="chair">Chair/Staff experience</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="areas-of-interest">Areas of Interest *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="event-management">
+                                    <span class="checkmark"></span>
+                                    Event Management & Planning
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="social-media">
+                                    <span class="checkmark"></span>
+                                    Social Media & Marketing
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="content-creation">
+                                    <span class="checkmark"></span>
+                                    Content Creation & Writing
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="research">
+                                    <span class="checkmark"></span>
+                                    Research & Analysis
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="graphic-design">
+                                    <span class="checkmark"></span>
+                                    Graphic Design
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="outreach">
+                                    <span class="checkmark"></span>
+                                    Outreach & Partnerships
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="areasOfInterest" value="technology">
+                                    <span class="checkmark"></span>
+                                    Technology & Web Development
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="relevant-experience">Relevant Experience</label>
+                            <textarea id="relevant-experience" name="relevantExperience" rows="4" placeholder="Describe any relevant experience in leadership, volunteering, projects, or other activities..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Application Essays</h3>
+                        <div class="form-group">
+                            <label for="motivation">Why do you want to intern with GVMUN? *</label>
+                            <textarea id="motivation" name="motivation" rows="5" required placeholder="Tell us about your interest in GVMUN and what you hope to achieve through this internship (200-300 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contribution">How do you plan to contribute to our team? *</label>
+                            <textarea id="contribution" name="contribution" rows="5" required placeholder="Describe your skills, ideas, and how you would add value to GVMUN (200-300 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="global-issue">What global issue are you most passionate about? *</label>
+                            <textarea id="global-issue" name="globalIssue" rows="4" required placeholder="Discuss a global issue that matters to you and why (150-200 words)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Additional Information</h3>
+                        <div class="form-group">
+                            <label for="availability">Weekly Availability *</label>
+                            <textarea id="availability" name="availability" rows="3" required placeholder="Please describe your weekly schedule and when you would be available to work on GVMUN projects"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" name="additionalInfo" rows="3" placeholder="Anything else you'd like us to know about you?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resume">Resume/CV Upload</label>
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                            <small>Optional: Upload your resume in PDF or Word format</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="agreement" required>
+                                <span class="checkmark"></span>
+                                I confirm that all information provided is accurate and I understand the commitment required for this internship program. *
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Application
+                        </button>
+                        <p class="form-note">
+                            Applications are reviewed on a rolling basis. You will receive a confirmation email within 48 hours.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>By the GVMUN Secretariat</p>
+                    <p>GVMUN is a nonprofit organization fiscally sponsored by the Hack Foundation</p>
+                    <p>Contact us: <a href="mailto:gvmunsecretariat@gmail.com" style="color: #667eea; text-decoration: none;">gvmunsecretariat@gmail.com</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/gvmun_official/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GVModelUN" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@gvmunofficial?lang=en" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/official-gvmun/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
