@@ -237,7 +237,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Stats counter animation
+    // Stats counter animation - DISABLED to preserve + symbols
+    /*
     function animateCounter(element, target) {
         const duration = 2000;
         const start = 0;
@@ -282,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
     statItems.forEach(item => {
         statsObserver.observe(item);
     });
-});
+    */
 
 // Handle window resize
 window.addEventListener('resize', function() {
