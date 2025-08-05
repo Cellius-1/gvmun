@@ -4,465 +4,539 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journalism - GVMUN</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for GVMUN branding -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .category-tech { @apply bg-blue-100 text-blue-800; }
+        .category-politics { @apply bg-red-100 text-red-800; }
+        .category-security { @apply bg-purple-100 text-purple-800; }
+        .category-middle-east { @apply bg-orange-100 text-orange-800; }
+        .category-caribbean { @apply bg-green-100 text-green-800; }
+        .category-southeast-asia { @apply bg-yellow-100 text-yellow-800; }
+        .category-military { @apply bg-gray-100 text-gray-800; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #667eea; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5a67d8; }
+
+        /* Gradient heading */
+        .gradient-heading {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gvmun-blue': '#667eea',
+                        'gvmun-purple': '#764ba2',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="logo">
-                    <span class="logo-text">GVMUN</span>
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="events.html" class="nav-link">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a href="get-involved.html" class="nav-link">Get Involved</a>
-                </li>
-                <li class="nav-item">
-                    <a href="publications.html" class="nav-link">Publications</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="h-8 w-8 rounded-lg">
+                        <span class="text-xl font-bold gradient-bg bg-clip-text text-transparent">GVMUN</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">About Us</a>
+                    <a href="events.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">Events</a>
+                    <a href="get-involved.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">Get Involved</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">Publications</a>
+                </div>
+                <button class="md:hidden p-2" @click="mobileMenuOpen = !mobileMenuOpen">
+                    <i class="fas fa-bars text-gray-600"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Journalism</h1>
-            <p>Comprehensive coverage of international affairs and UN developments</p>
-            <div class="header-cta">
-                <a href="publications.html" class="cta-link">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Publications
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="journalism-section">
-        <div class="container">
-            <div class="journalism-intro">
-                <h2>Latest Articles</h2>
-                <p>
-                    Stay informed with our comprehensive coverage of international affairs, UN developments, and global policy analysis. 
-                    Our dedicated journalism team provides unbiased reporting on the most pressing issues facing our world today.
+    <!-- Main Content -->
+    <div x-data="journalismApp()" class="pt-16">
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">GVMUN Journalism</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+                    Stay informed with our comprehensive coverage of international affairs, UN developments, and global policy analysis
                 </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button @click="showSubscribeModal = true" class="bg-white text-gvmun-blue px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-bell mr-2"></i>Subscribe to Updates
+                    </button>
+                    <a href="publications.html" class="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gvmun-blue transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Publications
+                    </a>
+                </div>
             </div>
-            
-            <div class="articles-showcase">
-                <!-- Myanmar Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=1200&h=600&fit=crop" alt="Myanmar Earthquake">
+        </section>
+
+        <!-- Filter and Search Section -->
+        <section class="bg-white border-b border-gray-200 sticky top-16 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                    <!-- Search Bar -->
+                    <div class="relative w-full lg:w-96">
+                        <input 
+                            type="text" 
+                            x-model="searchTerm" 
+                            @input="filterArticles()"
+                            placeholder="Search articles..." 
+                            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-gvmun-blue focus:border-transparent"
+                        >
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Natural Disaster</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Jackson Dorris</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>April 20, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>5 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">Earthquake in Myanmar: An Analysis of the Situation</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Jackson Dorris">
-                            </div>
-                            <div class="author-info">
-                                <h5>Jackson Dorris</h5>
-                                <p>Journalism Director at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>On March 28, 2025, at around 12:50 pm local time, an earthquake with a 7.7 magnitude was recorded in Myanmar. The devastation has been immense, with thousands of casualties and widespread infrastructure damage.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="myanmar-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>320</span>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2">
+                        <button 
+                            @click="selectedCategory = 'all'; filterArticles()"
+                            :class="selectedCategory === 'all' ? 'bg-gvmun-blue text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                            class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                        >
+                            All Articles
+                        </button>
+                        <template x-for="category in categories" :key="category">
+                            <button 
+                                @click="selectedCategory = category; filterArticles()"
+                                :class="selectedCategory === category ? 'bg-gvmun-blue text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                                class="px-4 py-2 rounded-full text-sm font-medium transition-colors capitalize"
+                                x-text="category.replace('-', ' ')"
+                            ></button>
+                        </template>
                     </div>
-                </article>
-
-                <!-- TikTok Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=600&fit=crop" alt="TikTok Ban Discussion">
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Tech Policy</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Angela Li</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>January 21, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>7 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">Discussing the Recent US Ban on TikTok</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Angela Li">
-                            </div>
-                            <div class="author-info">
-                                <h5>Angela Li</h5>
-                                <p>Winter 2025 Journalism Intern at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>In recent years, the global technological landscape has been reshaped by geopolitical tensions between the United States and China, with one of the most recent high-profile battles taking place over TikTok.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="tiktok-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>542</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Trump Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=600&fit=crop" alt="Trump 2.0: What It Means For The World">
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Breaking News</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Bharath Sathiajith</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>January 20, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>8 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">Trump 2.0: What It Means For The World</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Bharath Sathiajith">
-                            </div>
-                            <div class="author-info">
-                                <h5>Bharath Sathiajith</h5>
-                                <p>Fall 2024 Journalism Intern at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>On January 20th, 2025, President-Elect Donald Trump will begin his historic second, non-consecutive term as the 47th President of the United States.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="trump-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>1,247</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Haiti Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1200&h=600&fit=crop" alt="Situation in Haiti">
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Humanitarian Crisis</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Prisha Aurora</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>January 18, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>6 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">Situation in Haiti: UNICEF Warns About Surge in Youth Armed Recruitment</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face" alt="Prisha Aurora">
-                            </div>
-                            <div class="author-info">
-                                <h5>Prisha Aurora</h5>
-                                <p>Winter 2025 Journalism Intern at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>Haiti is facing a worsening humanitarian crisis, with a dramatic rise in the recruitment of children into armed gangs.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="haiti-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>892</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Myanmar Coup Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1200&h=600&fit=crop" alt="Myanmar Coup Analysis">
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Political Analysis</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Lisha Pitso</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>February 1, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>6 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">Four Years On: How the Coup Has Shaped Myanmar</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Lisha Pitso">
-                            </div>
-                            <div class="author-info">
-                                <h5>Lisha Pitso</h5>
-                                <p>Winter 2025 Journalism Intern at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>Four years after the military took control of Myanmar on February 1, 2021, the nation is still enmeshed in a severe humanitarian catastrophe, a collapsing economy, and widespread violence.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="myanmar-coup-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>425</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Palestinian Displacement Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop" alt="Palestinian Displacement Crisis">
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Humanitarian Crisis</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Sarah Gbajobi</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>February 15, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>5 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">As Conflict Escalates, Displaced Families Seek Shelter in 'Ghost Camps'</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face" alt="Sarah Gbajobi">
-                            </div>
-                            <div class="author-info">
-                                <h5>Sarah Gbajobi</h5>
-                                <p>Summer 2025 Journalism Intern at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>Since January 2025, the Israeli occupation has intensified drone attacks, humanitarian blockade, and prevented Palestinians from accessing necessities such as aid, food, and water.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="palestine-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>287</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- NATO-Russia Article -->
-                <article class="article-preview article-card">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop" alt="NATO-Russia Border Militarization">
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-header">
-                            <div class="article-category-badge">Security Analysis</div>
-                            <div class="article-meta">
-                                <div class="meta-item">
-                                    <span>By Alisa Pomelnikova</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>February 20, 2025</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span>12 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="article-title">Militarization of NATO-Russian Border</h3>
-                        
-                        <div class="article-byline">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face" alt="Alisa Pomelnikova">
-                            </div>
-                            <div class="author-info">
-                                <h5>Alisa Pomelnikova</h5>
-                                <p>Summer 2025 Journalism Intern at GVMUN</p>
-                            </div>
-                        </div>
-
-                        <div class="article-excerpt">
-                            <p>The NATO-Russia relationship has undergone a profound transformation, shifting from cautious cooperation in the post-Cold War era to active deterrence and counter-deterrence along Eastern Europe's borders.</p>
-                        </div>
-
-                        <div class="article-actions">
-                            <a href="nato-russia-article.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Read Full Article
-                            </a>
-                            <div class="article-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>156</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </div>
+        </section>
 
-            <div class="no-more-articles">
-                <div class="no-articles-content">
-                    <i class="fas fa-newspaper"></i>
-                    <h3>More Articles Coming Soon</h3>
-                    <p>Our journalism team is working on bringing you more comprehensive coverage of international affairs. Check back soon for new articles and analysis.</p>
+        <!-- Articles Grid -->
+        <section class="py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Featured Article -->
+                <div x-show="filteredArticles.length > 0" class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Article</h2>
+                    <template x-if="filteredArticles[0]">
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift">
+                            <div class="md:flex">
+                                <div class="md:w-1/2">
+                                    <img :src="filteredArticles[0].image" :alt="filteredArticles[0].title" class="w-full h-64 md:h-full object-cover">
+                                </div>
+                                <div class="md:w-1/2 p-8">
+                                    <div class="flex items-center space-x-3 mb-4">
+                                        <span :class="getCategoryClass(filteredArticles[0].category)" class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide" x-text="filteredArticles[0].category.replace('-', ' ')"></span>
+                                        <span class="text-gray-500 text-sm" x-text="filteredArticles[0].date"></span>
+                                    </div>
+                                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4" x-text="filteredArticles[0].title"></h3>
+                                    <p class="text-gray-600 mb-6 text-lg leading-relaxed" x-text="filteredArticles[0].excerpt"></p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <img :src="filteredArticles[0].authorImage" :alt="filteredArticles[0].author" class="w-10 h-10 rounded-full">
+                                            <div>
+                                                <p class="font-semibold text-gray-900" x-text="filteredArticles[0].author"></p>
+                                                <p class="text-sm text-gray-500" x-text="filteredArticles[0].readTime + ' min read'"></p>
+                                            </div>
+                                        </div>
+                                        <button @click="openArticle(filteredArticles[0])" class="gradient-bg text-white px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                                            Read Article
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Article Grid -->
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Latest Articles</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <template x-for="(article, index) in filteredArticles.slice(1)" :key="index">
+                            <article class="bg-white rounded-xl shadow-md overflow-hidden hover-lift cursor-pointer" @click="openArticle(article)">
+                                <div class="relative">
+                                    <img :src="article.image" :alt="article.title" class="w-full h-48 object-cover">
+                                    <div class="absolute top-4 left-4">
+                                        <span :class="getCategoryClass(article.category)" class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide" x-text="article.category.replace('-', ' ')"></span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center space-x-2 text-sm text-gray-500 mb-3">
+                                        <i class="fas fa-calendar"></i>
+                                        <span x-text="article.date"></span>
+                                        <span>•</span>
+                                        <span x-text="article.readTime + ' min read'"></span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2" x-text="article.title"></h3>
+                                    <p class="text-gray-600 mb-4 line-clamp-3" x-text="article.excerpt"></p>
+                                    <div class="flex items-center space-x-3">
+                                        <img :src="article.authorImage" :alt="article.author" class="w-8 h-8 rounded-full">
+                                        <span class="font-medium text-gray-900" x-text="article.author"></span>
+                                    </div>
+                                </div>
+                            </article>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- No Results -->
+                <div x-show="filteredArticles.length === 0" class="text-center py-12">
+                    <i class="fas fa-search text-gray-300 text-6xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No articles found</h3>
+                    <p class="text-gray-500">Try adjusting your search terms or filters</p>
+                </div>
+
+                <!-- Load More Button -->
+                <div x-show="filteredArticles.length > 6" class="text-center mt-12">
+                    <button @click="loadMoreArticles()" class="gradient-bg text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
+                        <i class="fas fa-plus mr-2"></i>Load More Articles
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Modal -->
+        <div x-show="showArticleModal" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div @click.away="showArticleModal = false" class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="relative">
+                    <button @click="showArticleModal = false" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors z-10">
+                        <i class="fas fa-times text-gray-600"></i>
+                    </button>
+                    <template x-if="selectedArticle">
+                        <div>
+                            <img :src="selectedArticle.image" :alt="selectedArticle.title" class="w-full h-64 md:h-80 object-cover">
+                            <div class="p-8">
+                                <div class="flex items-center space-x-3 mb-6">
+                                    <span :class="getCategoryClass(selectedArticle.category)" class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide" x-text="selectedArticle.category.replace('-', ' ')"></span>
+                                    <span class="text-gray-500" x-text="selectedArticle.date"></span>
+                                    <span class="text-gray-500">•</span>
+                                    <span class="text-gray-500" x-text="selectedArticle.readTime + ' min read'"></span>
+                                </div>
+                                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" x-text="selectedArticle.title"></h1>
+                                <div class="flex items-center space-x-4 mb-8 pb-8 border-b border-gray-200">
+                                    <img :src="selectedArticle.authorImage" :alt="selectedArticle.author" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-gray-900" x-text="selectedArticle.author"></p>
+                                        <p class="text-gray-500" x-text="selectedArticle.authorBio"></p>
+                                    </div>
+                                </div>
+                                <div class="prose prose-lg max-w-none" x-html="selectedArticle.content"></div>
+                                <div class="mt-8 pt-8 border-t border-gray-200">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex space-x-4">
+                                            <button class="flex items-center space-x-2 text-gray-600 hover:text-gvmun-blue transition-colors">
+                                                <i class="fas fa-heart"></i>
+                                                <span>Like</span>
+                                            </button>
+                                            <button class="flex items-center space-x-2 text-gray-600 hover:text-gvmun-blue transition-colors">
+                                                <i class="fas fa-share"></i>
+                                                <span>Share</span>
+                                            </button>
+                                        </div>
+                                        <a :href="selectedArticle.fullArticleUrl" target="_blank" class="gradient-bg text-white px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                                            Read Full Article
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>By the GVMUN Secretariat</p>
-                    <p>GVMUN is a nonprofit organization fiscally sponsored by the Hack Foundation</p>
-                    <p>Contact us: <a href="mailto:gvmunsecretariat@gmail.com" style="color: #667eea; text-decoration: none;">gvmunsecretariat@gmail.com</a></p>
+        <!-- Subscribe Modal -->
+        <div x-show="showSubscribeModal" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div @click.away="showSubscribeModal = false" class="bg-white rounded-2xl max-w-md w-full p-8">
+                <button @click="showSubscribeModal = false" class="float-right text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="text-center">
+                    <i class="fas fa-newspaper text-gvmun-blue text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h3>
+                    <p class="text-gray-600 mb-6">Subscribe to get notifications about our latest articles and publications.</p>
+                    <form @submit.prevent="subscribe()">
+                        <input type="email" x-model="subscribeEmail" placeholder="Enter your email" class="w-full px-4 py-3 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-gvmun-blue focus:border-transparent" required>
+                        <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg hover:opacity-90 transition-opacity">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/gvmun_official/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GVModelUN" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.tiktok.com/@gvmunofficial?lang=en" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.linkedin.com/company/official-gvmun/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="h-8 w-8 rounded-lg">
+                        <span class="text-xl font-bold">GVMUN</span>
+                    </div>
+                    <p class="text-gray-400">Global Virtual Model United Nations - Improving the Model UN space while encouraging youth activism and political education.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition-colors">About Us</a>
+                        <a href="events.html" class="block text-gray-400 hover:text-white transition-colors">Events</a>
+                        <a href="get-involved.html" class="block text-gray-400 hover:text-white transition-colors">Get Involved</a>
+                        <a href="publications.html" class="block text-gray-400 hover:text-white transition-colors">Publications</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/gvmun_official/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@GVModelUN" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/official-gvmun/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@gvmunofficial" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-4">Contact: <a href="mailto:gvmunsecretariat@gmail.com" class="text-gvmun-blue hover:underline">gvmunsecretariat@gmail.com</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function journalismApp() {
+            return {
+                articles: [],
+                filteredArticles: [],
+                categories: ['technology', 'politics', 'security', 'middle-east', 'caribbean', 'southeast-asia', 'military'],
+                selectedCategory: 'all',
+                searchTerm: '',
+                showArticleModal: false,
+                showSubscribeModal: false,
+                selectedArticle: null,
+                subscribeEmail: '',
+                mobileMenuOpen: false,
+
+                init() {
+                    this.loadArticles();
+                },
+
+                loadArticles() {
+                    this.articles = [
+                        {
+                            id: 1,
+                            title: "Trump 2.0: What It Means For The World",
+                            excerpt: "President-Elect Donald Trump will begin his historic second, non-consecutive term as the 47th President of the United States. His upset victory over Vice-President Kamala Harris has prompted global reactions and questions over the implications of a second Trump Administration on the global order.",
+                            content: `
+                                <p class="text-xl text-gray-700 leading-8 font-medium mb-8">
+                                    On January 20th, 2025, President-Elect Donald Trump will begin his historic second, non-consecutive term as the 47th President of the United States. His upset victory over Vice-President Kamala Harris has prompted global reactions and questions over the implications of a second Trump Administration on the global order.
+                                </p>
+
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Impact on the Global Economy</h2>
+                                <p class="text-gray-700 mb-4">
+                                    Central to Trump's "America First" policy throughout the campaign trail has been his vow to slap a 60% tariff on Chinese imports, a 10%-20% universal tariff, and a 200% tariff on Mexican automobiles. Economists warn that this will increase domestic inflation and slow global trade. A trade war with China may resume, prompting China to dump its exports elsewhere like Europe (prompting a chain reaction of tariffs) and retaliate with high tariffs, disrupting global trade.
+                                </p>
+                                <p class="text-gray-700 mb-4">
+                                    Trump's plans to deport five million undocumented Mexican immigrants back to Mexico and impose tariffs on its automobile industry, can also damage the Mexican economy. Additionally, Trump threatens to withdraw from the Indo-Pacific Economic Framework, further undermining regional trade alliances.
+                                </p>
+
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Trump's Foreign Policy</h2>
+                                <p class="text-gray-700 mb-4">
+                                    Trump's distinctive foreign policy is characterized by skepticism and a "transactional" approach toward alliances. Trump's criticism of NATO and his policy of conditional support based on allies spending their 'fair share' for defense, concerns Europe. His vow to end the war in Ukraine quickly without specifying how, is also a point of concern, as a quick end—possibly with concessions to Russia such as Ukrainian territory—may embolden further Russian encroachment threatening NATO, and offer China a template to exert its expansionist ideas.
+                                </p>
+                                <p class="text-gray-700 mb-4">
+                                    In the Middle East, Trump must balance Israel, the Gulf States, and Iran. Trump's "maximum pressure" policy against Iran in his first term, which included withdrawing from the nuclear deal and imposing sanctions, may continue. However, a more aggressive Iran, funding Hezbollah in Lebanon and Houthis in Yemen, may force the administration to rethink its approach. Trump's cordial ties with Saudi Arabia, the UAE, Qatar, and Egypt whilst also being pro-Israel may continue, prompting efforts similar to the brokering of the Abraham Accords and further normalization of relations between Israel and Middle Eastern states.
+                                </p>
+
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Conclusion</h2>
+                                <p class="text-gray-700 mb-4">
+                                    President-Elect Trump inherits a volatile world, rife with uncertainty, conflicts, and a slowing global economy. It remains to be seen what policies will be enacted in the coming four years, but what is certain is that Trump's policies will undoubtedly leave a mark on the world for decades to come, for better or for worse.
+                                </p>
+                            `,
+                            category: "politics",
+                            author: "Bharath Sathiajith",
+                            authorBio: "Fall 2024 Journalism Intern",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/trump.png",
+                            date: "January 20, 2025",
+                            readTime: 5,
+                            fullArticleUrl: "trump-article.html"
+                        },
+                        {
+                            id: 2,
+                            title: "Militarization of NATO-Russian Border",
+                            excerpt: "A Changing Security Landscape in Eastern Europe. The NATO-Russia relationship has undergone a profound transformation, shifting from cautious cooperation in the post-Cold War era to active deterrence and counter-deterrence.",
+                            content: "<p>A comprehensive analysis of the evolving security dynamics...</p>",
+                            category: "security",
+                            author: "Alisa Pomelnikova",
+                            authorBio: "Summer 2025 Journalism Intern",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/nato.png",
+                            date: "July 15, 2025",
+                            readTime: 12,
+                            fullArticleUrl: "nato-russia-article.html"
+                        },
+                        {
+                            id: 3,
+                            title: "As Conflict Escalates, Displaced Families Seek Shelter in 'Ghost Camps'",
+                            excerpt: "Thousands of Palestinians are forced into makeshift shelters as the war with Israel intensifies, transforming once-empty areas into hubs of human suffering.",
+                            content: "<p>A detailed examination of the humanitarian crisis in Palestinian territories...</p>",
+                            category: "middle-east",
+                            author: "Sarah Gbajobi",
+                            authorBio: "Summer 2025 Journalism Intern",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/palestine.png",
+                            date: "August 30, 2025",
+                            readTime: 8,
+                            fullArticleUrl: "palestine-article.html"
+                        },
+                        {
+                            id: 4,
+                            title: "Four Years On: How the Coup Has Shaped Myanmar",
+                            excerpt: "Four years after the military took control of Myanmar on February 1, 2021, the nation is still enmeshed in a severe humanitarian catastrophe, a collapsing economy, and widespread violence.",
+                            content: "<p>A comprehensive analysis of Myanmar's crisis four years after the military coup...</p>",
+                            category: "southeast-asia",
+                            author: "Lisha Pitso",
+                            authorBio: "Winter 2025 Journalism Intern",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/coup.png",
+                            date: "February 1, 2025",
+                            readTime: 10,
+                            fullArticleUrl: "myanmar-coup-article.html"
+                        },
+                        {
+                            id: 5,
+                            title: "Earthquake in Myanmar: An Analysis of the Situation",
+                            excerpt: "On March 28, 2025, a devastating 7.7 magnitude earthquake struck Myanmar, followed by persistent aftershocks. The destruction has been immense, affecting thousands of lives and religious structures.",
+                            content: "<p>Analysis of the devastating earthquake and its implications for Myanmar...</p>",
+                            category: "southeast-asia",
+                            author: "Jackson Dorris",
+                            authorBio: "Journalism Director",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/earthquake.png",
+                            date: "April 20, 2025",
+                            readTime: 6,
+                            fullArticleUrl: "myanmar-earthquake-article.html"
+                        },
+                        {
+                            id: 6,
+                            title: "Discussing the Recent US Ban on TikTok",
+                            excerpt: "The global technological landscape has been reshaped by geopolitical tensions between the United States and China, with one of the most recent high-profile battles taking place over TikTok.",
+                            content: "<p>Analysis of the TikTok ban and its implications for US-China relations...</p>",
+                            category: "technology",
+                            author: "Angela Li",
+                            authorBio: "Winter 2025 Journalism Intern",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/tiktok.png",
+                            date: "January 21, 2025",
+                            readTime: 7,
+                            fullArticleUrl: "tiktok-article.html"
+                        },
+                        {
+                            id: 7,
+                            title: "Haiti's Crisis: A Policy Analysis",
+                            excerpt: "An in-depth examination of Haiti's ongoing political and humanitarian crisis, exploring potential solutions and international intervention strategies.",
+                            content: "<p>Analysis of Haiti's complex challenges and potential policy solutions...</p>",
+                            category: "caribbean",
+                            author: "GVMUN Research Team",
+                            authorBio: "Policy Analysis Division",
+                            authorImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e5e7eb'/%3E%3Cpath d='M75 70c8.284 0 15-6.716 15-15s-6.716-15-15-15-15 6.716-15 15 6.716 15 15 15zm0 10c-10 0-30 5-30 15v10h60v-10c0-10-20-15-30-15z' fill='%23d1d5db'/%3E%3C/svg%3E",
+                            image: "assets/articles/haiti.png",
+                            date: "March 15, 2025",
+                            readTime: 15,
+                            fullArticleUrl: "haiti-article.html"
+                        }
+                    ];
+                    this.filteredArticles = [...this.articles];
+                },
+
+                filterArticles() {
+                    let filtered = this.articles;
+
+                    // Filter by category
+                    if (this.selectedCategory !== 'all') {
+                        filtered = filtered.filter(article => article.category === this.selectedCategory);
+                    }
+
+                    // Filter by search term
+                    if (this.searchTerm) {
+                        const term = this.searchTerm.toLowerCase();
+                        filtered = filtered.filter(article => 
+                            article.title.toLowerCase().includes(term) ||
+                            article.excerpt.toLowerCase().includes(term) ||
+                            article.author.toLowerCase().includes(term)
+                        );
+                    }
+
+                    this.filteredArticles = filtered;
+                },
+
+                getCategoryClass(category) {
+                    const classes = {
+                        'technology': 'bg-blue-100 text-blue-800',
+                        'politics': 'bg-red-100 text-red-800',
+                        'security': 'bg-purple-100 text-purple-800',
+                        'middle-east': 'bg-orange-100 text-orange-800',
+                        'caribbean': 'bg-green-100 text-green-800',
+                        'southeast-asia': 'bg-yellow-100 text-yellow-800',
+                        'military': 'bg-gray-100 text-gray-800'
+                    };
+                    return classes[category] || 'bg-gray-100 text-gray-800';
+                },
+
+                openArticle(article) {
+                    // Redirect to the individual article page
+                    window.location.href = article.fullArticleUrl;
+                },
+
+                subscribe() {
+                    // Handle subscription logic here
+                    alert(`Thank you for subscribing with ${this.subscribeEmail}!`);
+                    this.subscribeEmail = '';
+                    this.showSubscribeModal = false;
+                },
+
+                loadMoreArticles() {
+                    // Implement pagination logic here
+                    console.log('Loading more articles...');
+                }
+            }
+        }
+    </script>
 </body>
 </html>

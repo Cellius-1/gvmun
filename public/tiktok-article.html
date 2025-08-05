@@ -5,841 +5,343 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discussing the Recent US Ban on TikTok - GVMUN</title>
     
-    <!-- External Libraries -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Custom Styles -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom styling -->
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #f59e0b;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f8fafc;
-            --border-color: #e5e7eb;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background: #ffffff;
-        }
-
-        .article-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 50px rgba(0,0,0,0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .article-hero {
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        
+        /* Article-specific styles with enhanced headers */
+        .article-content h2 {
+            @apply text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 mt-12 mb-6 pt-8;
+            border-top: 3px solid #667eea;
             position: relative;
-            height: 60vh;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            overflow: hidden;
+            font-family: 'Merriweather', serif;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
-
-        .article-hero::before {
+        
+        .article-content h2::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: -3px;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1920&h=1080&fit=crop') center/cover;
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .article-category {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-        }
-
-        .article-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .article-subtitle {
-            font-size: 1.3rem;
-            font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            font-size: 1rem;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .article-content {
-            padding: 4rem 2rem;
-        }
-
-        .author-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--bg-light);
-            border-radius: 15px;
-            border-left: 5px solid var(--primary-color);
-        }
-
-        .author-avatar {
             width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .author-info p {
-            color: var(--text-light);
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .article-body p {
-            margin-bottom: 1.8rem;
-            text-align: justify;
-        }
-
-        .article-body p:first-child {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .section-header {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 3rem 0 1.5rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .section-header::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 2px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            border-left: 5px solid var(--primary-color);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        /* Remove the quote icon to prevent overlapping */
-        /* .highlight-box::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--primary-color);
-            opacity: 0.3;
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-family: serif;
-        } */
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .stat-number {
-            font-size: 3rem;
+        
+        .article-content h3 {
+            @apply text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-8 mb-4;
+            border-left: 4px solid #667eea;
+            padding-left: 16px;
+            font-family: 'Merriweather', serif;
             font-weight: 900;
-            color: var(--primary-color);
-            display: block;
         }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .btn-custom {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
-            color: white;
-        }
-
-        .btn-outline-custom {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-outline-custom:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .social-share {
-            position: fixed;
-            left: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 1000;
-        }
-
-        .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .social-btn:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-
-        .social-btn.twitter { background: #1da1f2; }
-        .social-btn.facebook { background: #4267b2; }
-        .social-btn.linkedin { background: #0077b5; }
-        .social-btn.copy { background: #6b7280; }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            z-index: 1001;
-            transition: width 0.3s ease;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        .related-articles {
-            background: var(--bg-light);
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .related-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .related-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .related-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .related-content {
-            padding: 1.5rem;
-        }
-
-        .related-title {
+        
+        .article-content h4 {
+            @apply text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-6 mb-3;
+            font-family: 'Merriweather', serif;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
         }
-
-        .related-excerpt {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.6;
+        
+        .article-content p {
+            @apply text-gray-700 leading-7 mb-4 text-lg;
+            font-weight: 400;
         }
-
-        @media (max-width: 768px) {
-            .social-share {
-                position: static;
-                flex-direction: row;
-                justify-content: center;
-                margin: 2rem 0;
-                transform: none;
-            }
-            
-            .article-content {
-                padding: 2rem 1rem;
-            }
-            
-            .article-hero {
-                height: 50vh;
-            }
-            
-            .hero-content {
-                padding: 1rem;
-            }
-        }
-
-        .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .article-content strong {
+            @apply font-semibold text-gray-900;
         }
     </style>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gvmun-blue': '#667eea',
+                        'gvmun-purple': '#764ba2',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/gvmunlogo.png" alt="GVMUN Logo" height="40" class="me-2">
-                <strong>GVMUN</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="get-involved.html">Get Involved</a></li>
-                    <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-                </ul>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="h-8 w-8 rounded-lg">
+                        <span class="text-xl font-bold gradient-bg bg-clip-text text-transparent">GVMUN</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">About Us</a>
+                    <a href="events.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">Events</a>
+                    <a href="get-involved.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">Get Involved</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-gvmun-blue transition-colors">Publications</a>
+                </div>
+                <button class="md:hidden p-2">
+                    <i class="fas fa-bars text-gray-600"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Social Share -->
-    <div class="social-share">
-        <a href="#" class="social-btn twitter" onclick="shareOnTwitter()" title="Share on Twitter">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-btn facebook" onclick="shareOnFacebook()" title="Share on Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="social-btn linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#" class="social-btn copy" onclick="copyLink()" title="Copy Link">
-            <i class="fas fa-link"></i>
-        </a>
-    </div>
+    <!-- Article Header -->
+    <div class="pt-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-8">
+                <a href="index.html" class="hover:text-gvmun-blue transition-colors">Home</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <a href="publications.html" class="hover:text-gvmun-blue transition-colors">Publications</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <a href="journalism.html" class="hover:text-gvmun-blue transition-colors">Journalism</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-gray-900">Discussing the Recent US Ban on TikTok</span>
+            </nav>
 
-    <!-- Main Content -->
-    <div class="container-fluid p-0">
-        <article class="article-container" data-aos="fade-up">
-            <!-- Hero Section -->
-            <header class="article-hero">
-                <div class="hero-content">
-                    <span class="article-category" data-aos="fade-down" data-aos-delay="200">Tech Policy</span>
-                    <h1 class="article-title" data-aos="fade-up" data-aos-delay="400">Discussing the Recent US Ban on TikTok</h1>
-                    <p class="article-subtitle" data-aos="fade-up" data-aos-delay="600">TikTok and the New Frontline in the US China Tech War</p>
-                    <div class="article-meta" data-aos="fade-up" data-aos-delay="800">
-                        <div class="meta-item">
-                            <i class="fas fa-user"></i>
-                            <span>Angela Li</span>
+            <!-- Article Metadata -->
+            <div class="mb-8">
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-4">
+                    Technology
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                    Discussing the Recent US Ban on TikTok
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600 mb-6">
+                    TikTok and the New Frontline in the US China Tech War
+                </h2>
+                
+                <!-- Author and Date Info -->
+                <div class="flex items-center space-x-6 text-gray-600 mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-gray-500"></i>
                         </div>
-                        <div class="meta-item">
-                            <i class="fas fa-calendar"></i>
+                        <div>
+                            <p class="font-semibold text-gray-900">Angela Li</p>
+                            <p class="text-sm text-gray-500">Winter 2025 Journalism Intern</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-calendar text-gray-400"></i>
                             <span>January 21, 2025</span>
                         </div>
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-clock text-gray-400"></i>
                             <span>7 min read</span>
                         </div>
-                        <div class="meta-item">
-                            <i class="fas fa-eye"></i>
-                            <span>542 views</span>
-                        </div>
                     </div>
                 </div>
-            </header>
-
-            <!-- Article Content -->
-            <div class="article-content">
-                <!-- Author Section -->
-                <div class="author-section fade-in">
-                    <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face" alt="Angela Li">
-                    </div>
-                    <div class="author-info">
-                        <h4>Angela Li</h4>
-                        <p>Winter 2025 Journalism Intern at GVMUN</p>
-                        <p><i class="fas fa-envelope"></i> angela.li@gvmun.org</p>
-                    </div>
-                </div>
-
-                <!-- Article Body -->
-                <div class="article-body">
-                    <p class="fade-in">In recent years, the global technological landscape has been reshaped by geopolitical tensions between the United States and China, with one of the most recent high-profile battles taking place over TikTok. The US government's increasing scrutiny of TikTok has led to a ban of TikTok on January 19th, 2025 due to national security concerns over data privacy and potential ties to the Chinese government.</p>
-
-                    <div class="highlight-box fade-in">
-                        <p><strong>Key Development:</strong> As of January 20th, 2025, on the same day of President Trump's inauguration and beginning of his second term in office, TikTok is back online for American Users. President Trump plans to restore TikTok by delaying the ban for 90 more days to work out "a 50-50 joint venture between TikTok's existing parent company, China-based ByteDance, and a new, American owner".</p>
-                    </div>
-
-                    <!-- Statistics -->
-                    <div class="stats-grid fade-in">
-                        <div class="stat-card">
-                            <span class="stat-number">170M</span>
-                            <span class="stat-label">US TikTok Users</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">3M</span>
-                            <span class="stat-label">New Xiaohongshu Users</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">90</span>
-                            <span class="stat-label">Day Extension</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">50-50</span>
-                            <span class="stat-label">Proposed Joint Venture</span>
-                        </div>
-                    </div>
-
-                    <p class="fade-in">Not only do most American citizens oppose the ban, but in this period of uncertainty, a portion have fled to alternative platforms, mainly the Chinese social media app Xiaohongshu (Rednote). This shift has significant ramifications for both China's online influence and the ongoing geopolitical contest between the two superpowers.</p>
-
-                    <h2 class="section-header fade-in">The Battle for Digital Dominance</h2>
-                    
-                    <p class="fade-in">The potential US ban on TikTok is much more than a matter of data privacy. It is part of a larger geopolitical struggle between the US and China, where influence over digital platforms has become a strategic tool in shaping global narratives. The Biden administration had made two national security arguments about TikTok:</p>
-
-                    <div class="row fade-in">
-                        <div class="col-lg-6">
-                            <div class="highlight-box">
-                                <h5><i class="fas fa-shield-alt"></i> Security Concerns</h5>
-                                <p>Fear that China could access users' information as potential blackmail material, raising concerns about national security and privacy.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="highlight-box">
-                                <h5><i class="fas fa-broadcast-tower"></i> Content Manipulation</h5>
-                                <p>Concerns that the company could manipulate content in a way that benefits the Chinese government's interests and narratives.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="fade-in">President Biden thus signed a law last April that gave ByteDance 270 days to sell TikTok to an owner from the United States or one of its allies or face a ban. As US users begin to migrate to Chinese platforms due to the ban on TikTok, they are not just engaging in rare cultural exchange with Chinese social media users over the internet, but also entering an ecosystem that offers a distinct perspective on global trends and ideologies.</p>
-
-                    <h2 class="section-header fade-in">Implications for US-China Relations</h2>
-                    
-                    <p class="fade-in">The rising popularity of Xiaohongshu and other Chinese platforms is part of a broader strategy by China to expand its digital influence and reshape the global narrative. Though Xiaohongshu is scrambling to find ways to moderate English-language content according to Chinese censorship requirements and build English-Chinese translation tools, Chinese state media has overall cheered the trend.</p>
-
-                    <div class="highlight-box fade-in">
-                        <p><strong>Media Response:</strong> State broadcaster CCTV said that the TikTok users had found a "new home," highlighting how this development aligns with China's broader digital diplomacy objectives.</p>
-                    </div>
-
-                    <p class="fade-in">This shift could affect how countries view China's role in the digital economy, and the influence of Chinese tech companies could challenge the dominance of Western platforms like Facebook, Instagram, and Twitter, particularly in markets outside of the US and Europe. The US is evidently wary of China's growing influence and is increasingly focused on controlling Chinese media's reach as a critical aspect of the broader geopolitical battle for media dominance.</p>
-
-                    <h2 class="section-header fade-in">Looking Forward: The Digital Cold War</h2>
-                    
-                    <p class="fade-in">As TikTok refugees flood to platforms like Xiaohongshu, they are not just finding new spaces for entertainment, but also contributing to a broader geopolitical shift in a way that aligns with the strategic interests of the US and China. The ongoing TikTok saga represents more than just a battle over a single app—it symbolizes the complex intersection of technology, national security, and global influence in the digital age.</p>
-
-                    <div class="highlight-box fade-in">
-                        <h5>Key Takeaways</h5>
-                        <ul>
-                            <li>The TikTok ban represents a new front in US-China technological competition</li>
-                            <li>User migration to Chinese platforms may inadvertently boost China's digital influence</li>
-                            <li>The resolution will set precedents for future digital sovereignty debates</li>
-                            <li>Both nations are using digital platforms as tools of soft power and narrative control</li>
-                        </ul>
-                    </div>
-
-                    <!-- Action Buttons -->
-                    <div class="action-buttons fade-in">
-                        <a href="journalism.html" class="btn-custom btn-outline-custom">
-                            <i class="fas fa-arrow-left"></i>
-                            Back to Articles
-                        </a>
-                        <a href="#" class="btn-custom btn-primary-custom" onclick="shareArticle()">
-                            <i class="fas fa-share-alt"></i>
-                            Share Article
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Related Articles -->
-                <section class="related-articles">
-                    <h2 class="text-center mb-4 fade-in">Related Articles</h2>
-                    <div class="related-grid">
-                        <a href="trump-article.html" class="related-card fade-in" data-aos="fade-up" data-aos-delay="200">
-                            <div class="related-image"></div>
-                            <div class="related-content">
-                                <h5 class="related-title">Trump 2.0: What It Means For The World</h5>
-                                <p class="related-excerpt">Analysis of the implications of Trump's second presidency on global affairs and international relations.</p>
-                            </div>
-                        </a>
-                        <a href="myanmar-coup-article.html" class="related-card fade-in" data-aos="fade-up" data-aos-delay="400">
-                            <div class="related-image"></div>
-                            <div class="related-content">
-                                <h5 class="related-title">Four Years On: How the Coup Has Shaped Myanmar</h5>
-                                <p class="related-excerpt">Comprehensive analysis of Myanmar's political crisis and its humanitarian impact.</p>
-                            </div>
-                        </a>
-                        <a href="#" class="related-card fade-in" data-aos="fade-up" data-aos-delay="600">
-                            <div class="related-image"></div>
-                            <div class="related-content">
-                                <h5 class="related-title">Digital Privacy in the Modern Era</h5>
-                                <p class="related-excerpt">Understanding data protection and privacy rights in today's interconnected digital landscape.</p>
-                            </div>
-                        </a>
-                    </div>
-                </section>
             </div>
-        </article>
+
+            <!-- Featured Image -->
+            <div class="mb-12">
+                <img src="assets/articles/tiktok.png" alt="TikTok ban discussion" class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg">
+                <p class="text-sm text-gray-500 mt-2 italic">TikTok app amid the US ban controversy. (File photo)</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- Article Content -->
+    <div class="bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+            <div class="prose prose-lg max-w-none article-content">
+                <p class="text-xl text-gray-700 leading-8 font-medium mb-8">
+                    In recent years, the global technological landscape has been reshaped by geopolitical tensions between the United States and China, with one of the most recent high-profile battles taking place over TikTok. The US government's increasing scrutiny of TikTok has led to a ban of TikTok on January 19th, 2025 due to national security concerns over data privacy and potential ties to the Chinese government.
+                </p>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h5>GVMUN Secretariat</h5>
-                    <p>GVMUN is a nonprofit organization fiscally sponsored by the Hack Foundation</p>
-                    <p>Contact us: <a href="mailto:gvmunsecretariat@gmail.com" class="text-info">gvmunsecretariat@gmail.com</a></p>
+                <p>
+                    As of January 20th, 2025, however, on the same day of President Trump's inauguration and beginning of his second term in office, TikTok is back online for American Users. President Trump plans to restore TikTok by delaying the ban for 90 more days to work out "a 50-50 joint venture between TikTok's existing parent company, China-based ByteDance, and a new, American owner". Despite President Trump pledging to reverse the ban, however, it is extremely difficult for him to undo a law passed by Congress and signed by the former president with an executive order.
+                </p>
+
+                <p>
+                    Not only do most American citizens oppose the ban, but in this period of uncertainty, a portion have fled to alternative platforms, mainly the Chinese social media app Xiaohongshu (Rednote). TikTok had some 170 million US users before the ban, but as a result of the uncertainty, Xiaohongshu gained nearly 3 million users in one day. This shift has significant ramifications for both China's online influence and the ongoing geopolitical contest between the two superpowers.
+                </p>
+
+                <h2>The Battle for Digital Dominance</h2>
+                <p>
+                    The potential US ban on TikTok is much more than a matter of data privacy. It is part of a larger geopolitical struggle between the US and China, where influence over digital platforms has become a strategic tool in shaping global narratives. The Biden administration had made two national security arguments about TikTok. One was a fear that China could access users' information as potential blackmail material. Another was that the company could manipulate content in a way that benefits the Chinese government. President Biden thus signed a law last April that gave ByteDance 270 days to sell TikTok to an owner from the United States or one of its allies or face a ban.
+                </p>
+
+                <p>
+                    As US users begin to migrate to Chinese platforms due to the ban on TikTok, they are not just engaging in rare cultural exchange with Chinese social media users over the internet, but also entering an ecosystem that offers a distinct perspective on global trends and ideologies. This movement could have far-reaching implications for the balance of digital power.
+                </p>
+
+                <h2>Implications for US-China Relations</h2>
+                <p>
+                    The rising popularity of Xiaohongshu and other Chinese platforms is part of a broader strategy by China to expand its digital influence and reshape the global narrative. Though Xiaohongshu is scrambling to find ways to moderate English-language content according to Chinese censorship requirements and build English-Chinese translation tools, Chinese state media has overall cheered the trend, with state broadcaster CCTV saying that the TikTok users had found a "new home."
+                </p>
+
+                <p>
+                    This shift could affect how countries view China's role in the digital economy, and the influence of Chinese tech companies could challenge the dominance of Western platforms like Facebook, Instagram, and Twitter, particularly in markets outside of the US and Europe. The US is evidently wary of China's growing influence and is increasingly focused on controlling Chinese media's reach as a critical aspect of the broader geopolitical battle for media dominance.
+                </p>
+
+                <h2>Conclusion</h2>
+                <p>
+                    As TikTok refugees flood to platforms like Xiaohongshu, they are not just finding new spaces for entertainment, but also contributing to a broader geopolitical shift in a way that aligns with the strategic interests of the US and China.
+                </p>
+            </div>
+
+            <!-- Article Footer -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+                    <!-- Social Sharing -->
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-600 font-medium">Share this article:</span>
+                        <div class="flex space-x-3">
+                            <button class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-twitter text-sm"></i>
+                            </button>
+                            <button class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-800 text-white hover:bg-blue-900 transition-colors">
+                                <i class="fab fa-facebook text-sm"></i>
+                            </button>
+                            <button class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-linkedin text-sm"></i>
+                            </button>
+                            <button class="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white hover:bg-green-700 transition-colors">
+                                <i class="fab fa-whatsapp text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Back to Articles -->
+                    <a href="journalism.html" class="inline-flex items-center space-x-2 text-gvmun-blue hover:text-gvmun-purple transition-colors font-medium">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to All Articles</span>
+                    </a>
                 </div>
-                <div class="col-lg-4 text-lg-end">
-                    <div class="d-flex gap-3 justify-content-lg-end">
-                        <a href="https://www.instagram.com/gvmun_official/" class="text-white fs-4" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@GVModelUN" class="text-white fs-4" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@gvmunofficial?lang=en" class="text-white fs-4" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.linkedin.com/company/official-gvmun/" class="text-white fs-4" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="mt-12 bg-gray-50 rounded-xl p-6">
+                <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-user text-gray-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 text-lg">Angela Li</h3>
+                        <p class="text-gray-600 mb-2">Winter 2025 Journalism Intern</p>
+                        <p class="text-gray-700">
+                            Angela is a journalism intern at GVMUN, specializing in technology policy and US-China relations. 
+                            She focuses on analyzing the intersection of technology, geopolitics, and international law in the digital age.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="assets/articles/trump.png" alt="Trump Article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800 mb-3">
+                            US Politics
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Trump 2.0: What It Means For The World</h3>
+                        <p class="text-gray-600 text-sm">Examining the potential impact of Donald Trump's return to the presidency...</p>
+                        <a href="trump-article.html" class="inline-flex items-center space-x-1 text-gvmun-blue hover:text-gvmun-purple transition-colors text-sm font-medium mt-3">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="assets/articles/nato.png" alt="NATO Russia" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 mb-3">
+                            Security
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Militarization of NATO-Russian Border</h3>
+                        <p class="text-gray-600 text-sm">Analyzing the deteriorating security relationship between NATO and Russia...</p>
+                        <a href="nato-russia-article.html" class="inline-flex items-center space-x-1 text-gvmun-blue hover:text-gvmun-purple transition-colors text-sm font-medium mt-3">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="assets/articles/earthquake.png" alt="Myanmar Earthquake" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800 mb-3">
+                            Southeast Asia
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Earthquake in Myanmar: An Analysis of the Situation</h3>
+                        <p class="text-gray-600 text-sm">On March 28, 2025, a devastating 7.7 magnitude earthquake struck Myanmar...</p>
+                        <a href="myanmar-earthquake-article.html" class="inline-flex items-center space-x-1 text-gvmun-blue hover:text-gvmun-purple transition-colors text-sm font-medium mt-3">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="h-8 w-8 rounded-lg">
+                        <span class="text-xl font-bold">GVMUN</span>
+                    </div>
+                    <p class="text-gray-400">Global Virtual Model United Nations - Improving the Model UN space while encouraging youth activism and political education.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition-colors">About Us</a>
+                        <a href="events.html" class="block text-gray-400 hover:text-white transition-colors">Events</a>
+                        <a href="get-involved.html" class="block text-gray-400 hover:text-white transition-colors">Get Involved</a>
+                        <a href="publications.html" class="block text-gray-400 hover:text-white transition-colors">Publications</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/gvmun_official/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@GVModelUN" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/official-gvmun/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@gvmunofficial" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-4">Contact: <a href="mailto:gvmunsecretariat@gmail.com" class="text-gvmun-blue hover:underline">gvmunsecretariat@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
     </footer>
-
-    <!-- External Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        // Reading Progress Bar
-        function updateProgressBar() {
-            const article = document.querySelector('.article-content');
-            const progressBar = document.getElementById('progressBar');
-            
-            if (article && progressBar) {
-                const scrollTop = window.scrollY;
-                const docHeight = article.offsetHeight;
-                const winHeight = window.innerHeight;
-                const scrollPercent = scrollTop / (docHeight - winHeight);
-                const scrollPercentRounded = Math.round(scrollPercent * 100);
-                
-                progressBar.style.width = Math.min(scrollPercentRounded, 100) + '%';
-            }
-        }
-
-        // Back to Top Button
-        function toggleBackToTop() {
-            const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        }
-
-        // Fade in animation
-        function handleFadeIn() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Social sharing functions
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Discussing the Recent US Ban on TikTok - GVMUN');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent('Discussing the Recent US Ban on TikTok');
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank');
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                // Show toast notification
-                const toast = document.createElement('div');
-                toast.innerHTML = '📋 Link copied to clipboard!';
-                toast.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: var(--primary-color);
-                    color: white;
-                    padding: 1rem 2rem;
-                    border-radius: 10px;
-                    z-index: 1002;
-                    animation: slideIn 0.3s ease;
-                `;
-                document.body.appendChild(toast);
-                setTimeout(() => {
-                    toast.remove();
-                }, 3000);
-            });
-        }
-
-        function shareArticle() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Discussing the Recent US Ban on TikTok - GVMUN',
-                    text: 'TikTok and the New Frontline in the US China Tech War',
-                    url: window.location.href
-                });
-            } else {
-                copyLink();
-            }
-        }
-
-        // Event listeners
-        window.addEventListener('scroll', () => {
-            updateProgressBar();
-            toggleBackToTop();
-            handleFadeIn();
-        });
-
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => {
-            handleFadeIn();
-            updateProgressBar();
-        });
-
-        // Add smooth scrolling to anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Add animation styles
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>

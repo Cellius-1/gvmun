@@ -112,12 +112,11 @@
 }
 
 .partner-item img {
-    max-width: 100%;
-    max-height: 150px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     transition: transform 0.3s ease;
+    border-radius: 16px;
 }
 
 .partner-item:hover img {
@@ -150,5 +149,7 @@
     
     .social-link i {
         font-size: 1.4rem;
+    }
+}
     }
 }

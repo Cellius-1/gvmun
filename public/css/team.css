@@ -8,10 +8,18 @@
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     align-items: start;
     justify-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Center the last item (Jackson) when it's alone in the bottom row */
+.team-grid .team-member:nth-child(7) {
+    grid-column: 1 / -1;
+    justify-self: center;
 }
 
 .team-member {
@@ -25,6 +33,8 @@
     z-index: 1;
     overflow: visible;
     height: fit-content;
+    width: 100%;
+    max-width: 280px;
 }
 
 .team-member:hover {
@@ -56,15 +66,8 @@
     display: block;
 }
 
-/* Ensure Lilli's card (7th member) is centered in its row */
-.team-member:nth-child(7) {
-    grid-column: 1 / -1;
-    max-width: 280px;
-    justify-self: center;
-}
-
 /* Special centering for Lilli's image with better positioning */
-.team-member:nth-child(7) .member-photo img {
+.team-member:nth-child(6) .member-photo img {
     object-position: center 30%;
     object-fit: cover;
     transform: scale(1.15);
@@ -169,11 +172,30 @@
 }
 
 /* Mobile responsiveness for bio tooltips */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+    }
+    
+    /* Center the last item when odd number in 2-column layout */
+    .team-grid .team-member:nth-child(7) {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+}
+
 @media (max-width: 768px) {
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
         gap: 24px;
         justify-items: center;
+        max-width: 350px;
+    }
+    
+    .team-grid .team-member:nth-child(7) {
+        grid-column: 1;
+        justify-self: center;
     }
     
     .member-bio {
@@ -207,6 +229,7 @@
     .team-member {
         cursor: pointer;
         padding: 24px 20px;
+        max-width: 280px;
     }
     
     .member-photo {
