@@ -29,40 +29,64 @@
     font-size: 1.125rem;
 }
 
-.event-countdown .time-value {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
 .event-countdown .countdown {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 32px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-height: 80px;
+    padding: 0 10px;
 }
 
 .event-countdown .time-unit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 60px;
+    justify-content: center;
+    min-width: 70px;
+    flex-shrink: 0;
+    flex: 1;
+    max-width: 80px;
+}
+
+.event-countdown .time-value {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 12px;
+    padding: 12px 10px;
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .event-countdown .time-separator {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 300;
-    opacity: 0.6;
+    opacity: 0.8;
     color: #1a1a1a;
+    line-height: 1;
+    align-self: flex-start;
+    margin-top: 12px;
+    flex-shrink: 0;
+    width: 12px;
+    text-align: center;
 }
 
 .event-countdown .time-label {
     font-size: 0.85rem;
-    opacity: 0.8;
+    opacity: 0.9;
     margin-top: 8px;
     font-weight: 500;
     color: #1a1a1a;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .conferences {
@@ -260,5 +284,27 @@
     
     .prompt-cards {
         grid-template-columns: 1fr;
+    }
+    
+    .event-countdown .countdown {
+        gap: 8px;
+        padding: 0 8px;
+    }
+    
+    .event-countdown .time-unit {
+        min-width: 60px;
+        max-width: 65px;
+    }
+    
+    .event-countdown .time-value {
+        font-size: 2rem;
+        min-height: 50px;
+        padding: 10px 8px;
+    }
+    
+    .event-countdown .time-separator {
+        font-size: 1.5rem;
+        margin-top: 10px;
+        width: 10px;
     }
 }

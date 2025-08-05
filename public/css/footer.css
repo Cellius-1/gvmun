@@ -35,26 +35,32 @@
 
 .footer-social {
     display: flex;
-    gap: 16px;
+    gap: 20px;
 }
 
 .social-link {
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 56px;
     background: #2d3748;
     color: white;
-    border-radius: 12px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 1.5rem;
 }
 
 .social-link:hover {
     background: #667eea;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
     color: white;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.social-link i {
+    font-size: 1.5rem;
 }
 
 /* Partners Section */
@@ -67,15 +73,15 @@
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
     align-items: center;
     justify-items: center;
 }
 
 .partner-item {
     background: white;
-    padding: 30px;
+    padding: 50px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,9 +89,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 120px;
+    min-height: 200px;
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 400px;
 }
 
 .partner-item:hover {
@@ -105,7 +113,7 @@
 
 .partner-item img {
     max-width: 100%;
-    max-height: 80px;
+    max-height: 150px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -121,7 +129,7 @@
     .footer-content {
         flex-direction: column;
         text-align: center;
-        gap: 24px;
+        gap: 32px;
     }
     
     .footer-text {
@@ -131,5 +139,16 @@
     .footer-social {
         order: 1;
         justify-content: center;
+        gap: 16px;
+    }
+    
+    .social-link {
+        width: 52px;
+        height: 52px;
+        font-size: 1.4rem;
+    }
+    
+    .social-link i {
+        font-size: 1.4rem;
     }
 }

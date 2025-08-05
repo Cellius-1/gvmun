@@ -380,6 +380,95 @@
     line-height: 1.5;
 }
 
+/* Special Note */
+.special-note {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 24px;
+    border-radius: 16px;
+    margin-top: 32px;
+    border-left: 4px solid #667eea;
+}
+
+.special-note p {
+    margin-bottom: 12px;
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.special-note p:last-child {
+    margin-bottom: 0;
+}
+
+.special-note a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.special-note a:hover {
+    text-decoration: underline;
+}
+
+/* Enhanced checkbox validation */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.checkbox-group[data-max="2"] .checkbox-item:nth-child(n+3) input[type="checkbox"]:checked ~ .checkbox-item input[type="checkbox"] {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Fellowship Structure and Weekly Schedule */
+.fellowship-structure {
+    margin-bottom: 32px;
+}
+
+.fellowship-structure h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.fellowship-structure p {
+    color: #64748b;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.weekly-schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.week-item {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.week-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #667eea;
+}
+
+.week-item p {
+    color: #374151;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .application-content {

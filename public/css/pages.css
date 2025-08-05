@@ -236,6 +236,14 @@
     margin-top: 64px;
 }
 
+/* Center the Educational Impact card */
+.overview-center {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    justify-self: center;
+    margin: 0 auto;
+}
+
 .overview-item {
     background: white;
     padding: 40px 32px;
@@ -1189,6 +1197,229 @@
     padding: 16px 32px;
 }
 
+/* Reports Section */
+.reports-section {
+    margin-top: 80px;
+    padding-top: 80px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.reports-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+    font-size: 1.125rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-top: 48px;
+}
+
+.report-paper {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e2e8f0;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    border-left: 6px solid #667eea;
+}
+
+.report-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.report-paper:hover::before {
+    transform: scaleX(1);
+}
+
+.report-paper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+/* Citation Modal */
+.citation-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.citation-modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.citation-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    border-bottom: 2px solid #e2e8f0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px 16px 0 0;
+}
+
+.citation-modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.citation-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.citation-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.citation-modal-body {
+    padding: 32px;
+}
+
+.citation-format-selector {
+    margin-bottom: 24px;
+}
+
+.citation-format-selector label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 1rem;
+}
+
+.citation-format-selector select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.citation-format-selector select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.citation-text-container {
+    position: relative;
+}
+
+#citation-text {
+    width: 100%;
+    min-height: 120px;
+    padding: 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    resize: vertical;
+    background: #f8fafc;
+    color: #374151;
+}
+
+.copy-btn {
+    margin-top: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-2px);
+}
+
+.copy-success {
+    display: none;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #10b981;
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-success.show {
+    display: flex;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    20%, 80% { opacity: 1; }
+}
+
 /* Mobile responsive for pages */
 @media (max-width: 768px) {
     .page-header {
@@ -1232,5 +1463,29 @@
     
     .research-paper {
         padding: 32px;
+    }
+    
+    .overview-center {
+        grid-column: 1;
+        max-width: none;
+        justify-self: auto;
+        margin: 0;
+    }
+}
+
+/* Mobile responsiveness for citation modal */
+@media (max-width: 768px) {
+    .citation-modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+    
+    .citation-modal-header,
+    .citation-modal-body {
+        padding: 20px;
+    }
+    
+    .citation-modal-header h3 {
+        font-size: 1.25rem;
     }
 }

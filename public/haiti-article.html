@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situation in Haiti: UNICEF Warns About Surge in Youth Armed Recruitment - GVMUN</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles - Same as TikTok article -->
+    <style>
+        /* Same CSS variables and styles as TikTok article */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: #ffffff;
+        }
+
+        .article-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-hero {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1920&h=1080&fit=crop') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .meta-item i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .author-avatar {
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .author-avatar img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .article-body {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-left: 5px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .section-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-custom {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-custom:hover {
+            filter: brightness(95%);
+        }
+
+        .related-articles {
+            margin-top: 3rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            background: var(--bg-light);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .related-image {
+            height: 150px;
+            background: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=300&fit=crop') center/cover;
+        }
+
+        .related-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .related-excerpt {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                height: 50vh;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .meta-item {
+                font-size: 0.75rem;
+            }
+
+            .author-avatar img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .author-info h4 {
+                font-size: 1rem;
+            }
+
+            .author-info p {
+                font-size: 0.75rem;
+            }
+
+            .article-body {
+                font-size: 0.875rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.25rem;
+            }
+
+            .section-header {
+                font-size: 1.25rem;
+            }
+
+            .btn-custom {
+                padding: 0.5rem 1rem;
+                font-size: 0.825rem;
+            }
+
+            .related-image {
+                height: 120px;
+            }
+
+            .related-title {
+                font-size: 1rem;
+            }
+
+            .related-excerpt {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/gvmunlogo.png" alt="GVMUN Logo" class="logo">
+                    <span class="logo-text">GVMUN</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="get-involved.html" class="nav-link">Get Involved</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-0">
+        <article class="article-container" data-aos="fade-up">
+            <!-- Hero Section -->
+            <header class="article-hero">
+                <div class="hero-content">
+                    <span class="article-category" data-aos="fade-down" data-aos-delay="200">Humanitarian Crisis</span>
+                    <h1 class="article-title" data-aos="fade-up" data-aos-delay="400">Situation in Haiti: UNICEF Warns About Surge in Youth Armed Recruitment</h1>
+                    <p class="article-subtitle" data-aos="fade-up" data-aos-delay="600">Highlight on the Worsening Humanitarian Crisis</p>
+                    <div class="article-meta" data-aos="fade-up" data-aos-delay="800">
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>Prisha Aurora</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>January 18, 2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6 min read</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-eye"></i>
+                            <span>892 views</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <!-- Author Section -->
+                <div class="author-section fade-in">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=200&h=200&fit=crop&crop=face" alt="Prisha Aurora">
+                    </div>
+                    <div class="author-info">
+                        <h4>Prisha Aurora</h4>
+                        <p>Winter 2025 Journalism Intern at GVMUN</p>
+                        <p><i class="fas fa-envelope"></i> prisha.aurora@gvmun.org</p>
+                    </div>
+                </div>
+
+                <!-- Article Body -->
+                <div class="article-body">
+                    <p class="fade-in">Haiti is facing a worsening humanitarian crisis, with a dramatic rise in the recruitment of children into armed gangs. According to a recent report by UNICEF, the number of children being forcibly or coercively recruited by criminal groups has surged by 70% over the past year.</p>
+
+                    <div class="highlight-box fade-in">
+                        <p><strong>Critical Statistics:</strong> It is estimated that children now make up between 30% to 50% of gang members in Haiti, a troubling statistic that underscores the increasing vulnerability of minors in the country's deteriorating security landscape.</p>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="stats-grid fade-in">
+                        <div class="stat-card">
+                            <span class="stat-number">70%</span>
+                            <span class="stat-label">Increase in Child Recruitment</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">50%</span>
+                            <span class="stat-label">Max Gang Composition (Children)</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Port-au-Prince Under Gang Control</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">700K</span>
+                            <span class="stat-label">Displaced People</span>
+                        </div>
+                    </div>
+
+                    <h2 class="section-header fade-in">Root Causes of Child Recruitment</h2>
+                    
+                    <p class="fade-in">The recruitment of children into armed groups is fueled by extreme poverty, political instability, and the near-total collapse of state institutions. Gangs, which now control approximately 85% of the capital, Port-au-Prince, have taken advantage of the absence of government oversight and law enforcement to expand their influence.</p>
+
+                    <div class="row fade-in">
+                        <div class="col-lg-6">
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-child"></i> Vulnerable Demographics</h5>
+                                <p>Children as young as eight are being abducted, forcibly recruited, or lured with promises of food, protection, and money.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-chart-line"></i> Poverty Statistics</h5>
+                                <p>More than 60% of the population lives on less than $4 a day, making children particularly vulnerable to exploitation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="section-header fade-in">The Reality for Haiti's Children</h2>
+                    
+                    <p class="fade-in">For boys, the most common roles within these gangs include acting as lookouts, informants, and active combatants. Many are armed and forced to participate in violent acts, including kidnappings, assassinations, and street battles between rival gangs. The psychological and emotional toll on these children is devastating, as they are often exposed to extreme brutality and trauma at an early age.</p>
+
+                    <p class="fade-in">For girls, the situation is even more dire. Many are subjected to sexual exploitation, forced domestic labor, and other forms of abuse at the hands of gang members. Reports indicate that rape and other forms of gender-based violence are being systematically used as tools of control and intimidation.</p>
+
+                    <h2 class="section-header fade-in">International Response and Funding Needs</h2>
+                    
+                    <p class="fade-in">UNICEF and other humanitarian organizations are calling for urgent intervention to address the crisis. The agency has requested $38 million in emergency funding to provide educational programs aimed at preventing child recruitment. UNICEF emphasizes that education is one of the most effective tools in keeping children away from gangs, offering them an alternative to a life of violence.</p>
+
+                    <div class="highlight-box fade-in">
+                        <h5>Key Challenges</h5>
+                        <ul>
+                            <li>Funding shortages limiting aid delivery and educational services</li>
+                            <li>Ongoing security crisis making humanitarian access difficult</li>
+                            <li>Need for stronger child protection and rehabilitation programs</li>
+                            <li>Requirement for increased law enforcement to dismantle criminal networks</li>
+                        </ul>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons fade-in">
+                        <a href="journalism.html" class="btn-custom btn-outline-custom">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Articles
+                        </a>
+                        <a href="#" class="btn-custom btn-primary-custom" onclick="shareArticle()">
+                            <i class="fas fa-share-alt"></i>
+                            Share Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Related Articles -->
+                <section class="related-articles">
+                    <h2 class="text-center mb-4 fade-in">Related Articles</h2>
+                    <div class="related-grid">
+                        <a href="myanmar-coup-article.html" class="related-card fade-in" data-aos="fade-up" data-aos-delay="200">
+                            <div class="related-image"></div>
+                            <div class="related-content">
+                                <h5 class="related-title">Four Years On: How the Coup Has Shaped Myanmar</h5>
+                                <p class="related-excerpt">Analysis of Myanmar's political crisis and humanitarian impact.</p>
+                            </div>
+                        </a>
+                        <a href="palestine-article.html" class="related-card fade-in" data-aos="fade-up" data-aos-delay="400">
+                            <div class="related-image"></div>
+                            <div class="related-content">
+                                <h5 class="related-title">Palestinian Families Seek Shelter in 'Ghost Camps'</h5>
+                                <p class="related-excerpt">Displacement crisis in the ongoing conflict.</p>
+                            </div>
+                        </a>
+                        <a href="#" class="related-card fade-in" data-aos="fade-up" data-aos-delay="600">
+                            <div class="related-image"></div>
+                            <div class="related-content">
+                                <h5 class="related-title">Children in Conflict Zones</h5>
+                                <p class="related-excerpt">Global perspectives on protecting vulnerable youth.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>By the GVMUN Secretariat</p>
+                    <p>GVMUN is a nonprofit organization fiscally sponsored by the Hack Foundation</p>
+                    <p>Contact us: <a href="mailto:gvmunsecretariat@gmail.com" style="color: #667eea; text-decoration: none;">gvmunsecretariat@gmail.com</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/gvmun_official/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GVModelUN" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@gvmunofficial?lang=en" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/official-gvmun/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

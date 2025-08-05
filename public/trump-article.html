@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trump 2.0: What It Means For The World - GVMUN</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: #ffffff;
+        }
+
+        .article-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-hero {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-content {
+            padding: 4rem 2rem;
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+        }
+
+        .article-body p:first-child {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 3rem 0 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-left: 5px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-custom {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-share {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        .social-btn.twitter { background: #1da1f2; }
+        .social-btn.facebook { background: #4267b2; }
+        .social-btn.linkedin { background: #0077b5; }
+        .social-btn.copy { background: #6b7280; }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .related-articles {
+            background: var(--bg-light);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .related-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .related-content {
+            padding: 1.5rem;
+        }
+
+        .related-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .related-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .social-share {
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                margin: 2rem 0;
+                transform: none;
+            }
+            
+            .article-content {
+                padding: 2rem 1rem;
+            }
+            
+            .article-hero {
+                height: 50vh;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+            }
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/gvmunlogo.png" alt="GVMUN Logo" height="40" class="me-2">
+                <strong>GVMUN</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="get-involved.html">Get Involved</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Social Share -->
+    <div class="social-share">
+        <a href="#" class="social-btn twitter" onclick="shareOnTwitter()" title="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-btn facebook" onclick="shareOnFacebook()" title="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-btn linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-btn copy" onclick="copyLink()" title="Copy Link">
+            <i class="fas fa-link"></i>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-0">
+        <article class="article-container" data-aos="fade-up">
+            <!-- Hero Section -->
+            <header class="article-hero">
+                <div class="hero-content">
+                    <span class="article-category" data-aos="fade-down" data-aos-delay="200">Breaking News</span>
+                    <h1 class="article-title" data-aos="fade-up" data-aos-delay="400">Trump 2.0: What It Means For The World</h1>
+                    <p class="article-subtitle" data-aos="fade-up" data-aos-delay="600">Global Implications of Trump's Historic Return to Power</p>
+                    <div class="article-meta" data-aos="fade-up" data-aos-delay="800">
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>Bharath Sathiajith</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>January 20, 2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>8 min read</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-eye"></i>
+                            <span>1,247 views</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <!-- Author Section -->
+                <div class="author-section fade-in">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Bharath Sathiajith">
+                    </div>
+                    <div class="author-info">
+                        <h4>Bharath Sathiajith</h4>
+                        <p>Fall 2024 Journalism Intern at GVMUN</p>
+                        <p><i class="fas fa-envelope"></i> bharath.sathiajith@gvmun.org</p>
+                    </div>
+                </div>
+
+                <!-- Article Body -->
+                <div class="article-body">
+                    <p class="fade-in">On January 20th, 2025, President-Elect Donald Trump will begin his historic second, non-consecutive term as the 47th President of the United States. His upset victory over Vice-President Kamala Harris has prompted global reactions and questions over the implications of a second Trump Administration on the global order.</p>
+
+                    <div class="highlight-box fade-in">
+                        <p><strong>Historic Achievement:</strong> Trump becomes only the second president in U.S. history to serve non-consecutive terms, following Grover Cleveland's precedent from the 1890s.</p>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="stats-grid fade-in">
+                        <div class="stat-card">
+                            <span class="stat-number">47th</span>
+                            <span class="stat-label">President of USA</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">2nd</span>
+                            <span class="stat-label">Non-consecutive Term</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Years Between Terms</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">2025</span>
+                            <span class="stat-label">Inauguration Year</span>
+                        </div>
+                    </div>
+
+                    <h2 class="section-header fade-in">Foreign Policy Implications</h2>
+                    
+                    <p class="fade-in">Trump's return to the presidency signals potential shifts in American foreign policy across multiple theaters. His previous administration's "America First" approach and skepticism toward multilateral institutions may resurface, affecting relationships with NATO allies, trade partnerships, and international climate commitments.</p>
+
+                    <div class="row fade-in">
+                        <div class="col-lg-6">
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-globe"></i> NATO Relations</h5>
+                                <p>Renewed questions about U.S. commitment to collective defense and burden-sharing among alliance members.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-handshake"></i> Trade Policy</h5>
+                                <p>Potential return to bilateral trade deals and renegotiation of existing multilateral agreements.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="section-header fade-in">Economic and Trade Ramifications</h2>
+                    
+                    <p class="fade-in">The global economy braces for potential policy reversals in areas ranging from climate initiatives to international trade agreements. Trump's previous tenure saw significant changes in trade relationships, particularly with China, and markets worldwide are anticipating similar volatility.</p>
+
+                    <div class="highlight-box fade-in">
+                        <h5>Key Economic Concerns</h5>
+                        <ul>
+                            <li>Potential renegotiation of existing trade agreements</li>
+                            <li>Changes to climate and energy policies affecting global markets</li>
+                            <li>Shifts in international economic cooperation frameworks</li>
+                            <li>Impact on global supply chains and manufacturing</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="section-header fade-in">Regional Security Considerations</h2>
+                    
+                    <p class="fade-in">Trump's approach to international conflicts and regional security issues will be closely watched. His previous administration's policies toward the Middle East, Eastern Europe, and the Indo-Pacific region may see significant changes, affecting global stability and alliance structures.</p>
+
+                    <p class="fade-in">The international community continues to assess how Trump 2.0 will navigate ongoing global challenges, from the war in Ukraine to tensions in the South China Sea, and the broader implications for the rules-based international order.</p>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons fade-in">
+                        <a href="journalism.html" class="btn-custom btn-outline-custom">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Articles
+                        </a>
+                        <a href="#" class="btn-custom btn-primary-custom" onclick="shareArticle()">
+                            <i class="fas fa-share-alt"></i>
+                            Share Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Related Articles -->
+                <section class="related-articles">
+                    <h2 class="text-center mb-4 fade-in">Related Articles</h2>
+                    <div class="related-grid">
+                        <a href="tiktok-article.html" class="related-card fade-in" data-aos="fade-up" data-aos-delay="200">
+                            <div class="related-image"></div>
+                            <div class="related-content">
+                                <h5 class="related-title">Discussing the Recent US Ban on TikTok</h5>
+                                <p class="related-excerpt">TikTok and the New Frontline in the US China Tech War</p>
+                            </div>
+                        </a>
+                        <a href="nato-russia-article.html" class="related-card fade-in" data-aos="fade-up" data-aos-delay="400">
+                            <div class="related-image"></div>
+                            <div class="related-content">
+                                <h5 class="related-title">Militarization of NATO-Russian Border</h5>
+                                <p class="related-excerpt">A Changing Security Landscape in Eastern Europe</p>
+                            </div>
+                        </a>
+                        <a href="#" class="related-card fade-in" data-aos="fade-up" data-aos-delay="600">
+                            <div class="related-image"></div>
+                            <div class="related-content">
+                                <h5 class="related-title">Global Democracy in Transition</h5>
+                                <p class="related-excerpt">How political changes are reshaping international relations.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>GVMUN Secretariat</h5>
+                    <p>GVMUN is a nonprofit organization fiscally sponsored by the Hack Foundation</p>
+                    <p>Contact us: <a href="mailto:gvmunsecretariat@gmail.com" class="text-info">gvmunsecretariat@gmail.com</a></p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex gap-3 justify-content-lg-end">
+                        <a href="https://www.instagram.com/gvmun_official/" class="text-white fs-4" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@GVModelUN" class="text-white fs-4" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@gvmunofficial?lang=en" class="text-white fs-4" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/company/official-gvmun/" class="text-white fs-4" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Reading Progress Bar
+        function updateProgressBar() {
+            const article = document.querySelector('.article-content');
+            const progressBar = document.getElementById('progressBar');
+            
+            if (article && progressBar) {
+                const scrollTop = window.scrollY;
+                const docHeight = article.offsetHeight;
+                const winHeight = window.innerHeight;
+                const scrollPercent = scrollTop / (docHeight - winHeight);
+                const scrollPercentRounded = Math.round(scrollPercent * 100);
+                
+                progressBar.style.width = Math.min(scrollPercentRounded, 100) + '%';
+            }
+        }
+
+        // Back to Top Button
+        function toggleBackToTop() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // Fade in animation
+        function handleFadeIn() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Social sharing functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Trump 2.0: What It Means For The World - GVMUN');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent('Trump 2.0: What It Means For The World');
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const toast = document.createElement('div');
+                toast.innerHTML = '📋 Link copied to clipboard!';
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary-color);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 10px;
+                    z-index: 1002;
+                    animation: slideIn 0.3s ease;
+                `;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            });
+        }
+
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Trump 2.0: What It Means For The World - GVMUN',
+                    text: 'Global Implications of Trump\'s Historic Return to Power',
+                    url: window.location.href
+                });
+            } else {
+                copyLink();
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            updateProgressBar();
+            toggleBackToTop();
+            handleFadeIn();
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            handleFadeIn();
+            updateProgressBar();
+        });
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

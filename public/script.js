@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize hero fade-in animation
+    const hero = document.querySelector('.hero-fade-in');
+    if (hero) {
+        // Ensure animation starts after page load
+        setTimeout(() => {
+            hero.style.animationPlayState = 'running';
+        }, 100);
+    }
+
     // Mobile navigation
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -129,6 +138,127 @@ document.addEventListener('DOMContentLoaded', function() {
             this.parentNode.replaceChild(placeholder, this);
         });
     });
+
+    // Citation data for reports
+    const citationData = {
+        'haiti-report': {
+            title: "To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development?",
+            author: "Kush K. Dave",
+            journal: "Youth In Policy Journal of Policy Analysis",
+            year: "2025",
+            type: "unpublished manuscript",
+            submission: "Summer 2025",
+            citations: {
+                apa: "Dave, K. K. (2025). To what extent can U.S. and Caribbean-led interventions stabilize Haiti while ensuring its long-term sovereignty and development? [Unpublished manuscript]. Youth In Policy Journal of Policy Analysis.",
+                mla: "Dave, Kush K. \"To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development?\" Youth In Policy Journal of Policy Analysis, Summer 2025, Unpublished manuscript.",
+                "chicago-nb": "Kush K. Dave, \"To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development?\" (unpublished manuscript, Youth In Policy Journal of Policy Analysis, Summer 2025).",
+                "chicago-ad": "Dave, Kush K. 2025. \"To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development?\" Unpublished manuscript, Youth In Policy Journal of Policy Analysis.",
+                harvard: "Dave, K.K., 2025. To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development? Unpublished manuscript. Youth In Policy Journal of Policy Analysis.",
+                ieee: "[1] K. K. Dave, \"To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development?\", unpublished manuscript, Youth In Policy Journal of Policy Analysis, Summer 2025.",
+                vancouver: "1. Dave KK. To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development? [unpublished manuscript]. Youth In Policy Journal of Policy Analysis; 2025.",
+                ama: "Dave KK. To What Extent Can U.S. and Caribbean-Led Interventions Stabilize Haiti While Ensuring Its Long-Term Sovereignty and Development? Unpublished manuscript, Youth In Policy Journal of Policy Analysis; 2025."
+            }
+        },
+        'syria-report': {
+            title: "Policy Recommendations for the United States Regarding Syria",
+            author: "Ayushmaan Mukherjee",
+            year: "2025",
+            type: "unpublished manuscript",
+            pages: "22 pp.",
+            postDate: "post–December 2024",
+            citations: {
+                apa: "Mukherjee, A. (2025). Policy recommendations for the United States regarding Syria [Unpublished manuscript].",
+                mla: "Mukherjee, Ayushmaan. Policy Recommendations for the United States Regarding Syria. Unpublished manuscript, 2025.",
+                "chicago-nb": "Ayushmaan Mukherjee, \"Policy Recommendations for the United States Regarding Syria\" (unpublished manuscript, 2025).",
+                "chicago-ad": "Mukherjee, Ayushmaan. 2025. \"Policy Recommendations for the United States Regarding Syria.\" Unpublished manuscript.",
+                harvard: "Mukherjee, A., 2025. Policy Recommendations for the United States Regarding Syria. Unpublished manuscript.",
+                ieee: "[2] A. Mukherjee, \"Policy Recommendations for the United States Regarding Syria,\" unpublished manuscript, 22 pp., 2025.",
+                vancouver: "2. Mukherjee A. Policy Recommendations for the United States Regarding Syria. [unpublished manuscript]. 2025;22 p.",
+                ama: "Mukherjee A. Policy Recommendations for the United States Regarding Syria. Unpublished manuscript; 2025."
+            }
+        }
+    };
+
+    // Citation modal functionality
+    const citationModal = document.getElementById('citation-modal');
+    const citationTitle = document.getElementById('citation-title');
+    const citationStyleSelect = document.getElementById('citation-style');
+    const citationTextArea = document.getElementById('citation-text');
+    const copyButton = document.getElementById('copy-citation');
+    const copySuccess = document.getElementById('copy-success');
+    const closeButton = document.querySelector('.citation-close');
+
+    let currentCitationId = null;
+
+    // Open citation modal
+    document.querySelectorAll('.citation-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const citationId = this.getAttribute('data-citation');
+            currentCitationId = citationId;
+            
+            if (citationData[citationId]) {
+                citationTitle.textContent = `Cite: ${citationData[citationId].title.substring(0, 50)}...`;
+                updateCitationText();
+                citationModal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        });
+    });
+
+    // Close citation modal
+    function closeCitationModal() {
+        citationModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        currentCitationId = null;
+    }
+
+    closeButton.addEventListener('click', closeCitationModal);
+
+    // Close modal when clicking outside
+    citationModal.addEventListener('click', function(e) {
+        if (e.target === citationModal) {
+            closeCitationModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && citationModal.style.display === 'block') {
+            closeCitationModal();
+        }
+    });
+
+    // Update citation text when style changes
+    citationStyleSelect.addEventListener('change', updateCitationText);
+
+    function updateCitationText() {
+        if (currentCitationId && citationData[currentCitationId]) {
+            const selectedStyle = citationStyleSelect.value;
+            const citation = citationData[currentCitationId].citations[selectedStyle];
+            citationTextArea.value = citation;
+        }
+    }
+
+    // Copy citation to clipboard
+    copyButton.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(citationTextArea.value);
+            showCopySuccess();
+        } catch (err) {
+            // Fallback for older browsers
+            citationTextArea.select();
+            citationTextArea.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            showCopySuccess();
+        }
+    });
+
+    function showCopySuccess() {
+        copySuccess.classList.add('show');
+        setTimeout(() => {
+            copySuccess.classList.remove('show');
+        }, 3000);
+    }
 });
 
 // Handle window resize

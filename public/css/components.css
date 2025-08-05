@@ -173,15 +173,16 @@
 .action-link {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     color: #667eea;
     text-decoration: none;
     font-weight: 500;
-    padding: 16px 20px;
-    border-radius: 12px;
+    padding: 20px 24px;
+    border-radius: 16px;
     background: rgba(102, 126, 234, 0.05);
     transition: all 0.3s ease;
     border: 1px solid rgba(102, 126, 234, 0.1);
+    line-height: 1.5;
 }
 
 .action-link:hover {
@@ -189,8 +190,10 @@
     transform: translateX(4px);
     color: #5a67d8;
     border-color: rgba(102, 126, 234, 0.2);
+    text-decoration: none;
 }
 
 .action-link i {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    flex-shrink: 0;
 }
