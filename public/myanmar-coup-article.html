@@ -22,7 +22,7 @@
         
         /* Article-specific styles with enhanced headers */
         .article-content h2 {
-            @apply text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 mt-12 mb-6 pt-8;
+            @apply text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 mt-12 mb-8 pt-8;
             border-top: 3px solid #667eea;
             position: relative;
             font-family: 'Merriweather', serif;
@@ -41,7 +41,7 @@
         }
         
         .article-content h3 {
-            @apply text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-8 mb-4;
+            @apply text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-8 mb-6;
             border-left: 4px solid #667eea;
             padding-left: 16px;
             font-family: 'Merriweather', serif;
@@ -49,14 +49,18 @@
         }
         
         .article-content h4 {
-            @apply text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-6 mb-3;
+            @apply text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-6 mb-4;
             font-family: 'Merriweather', serif;
             font-weight: 700;
         }
         
         .article-content p {
-            @apply text-gray-700 leading-7 mb-4 text-lg;
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 16px;
             font-weight: 400;
+            text-align: justify;
         }
         
         .article-content strong {
@@ -84,6 +88,8 @@
         .bibliography li {
             margin-bottom: 12px;
             line-height: 1.6;
+            color: #374151;
+            font-size: 16px;
         }
 
         .bibliography a {
