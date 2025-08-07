@@ -68,42 +68,7 @@
     text-decoration: none;
 }
 
-/* Events Page Styles */
-.event-countdown {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.event-countdown .countdown-container {
-    background: white;
-    color: #1a1a1a;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.event-countdown .countdown-header h2 {
-    color: #1a1a1a;
-    margin-bottom: 8px;
-    font-size: 2.25rem;
-    font-weight: 700;
-}
-
-.event-countdown .countdown-header p {
-    color: #64748b;
-    margin-bottom: 32px;
-    font-size: 1.125rem;
-}
-
-.event-countdown .time-value {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
+/* Conferences Page Styles */
 .conferences {
     padding: 120px 0;
     background: white;
@@ -1676,6 +1641,41 @@
     .lead-paragraph {
         font-size: 1.25rem;
         text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .gradient-heading {
+        font-size: 2.5rem;
+    }
+    
+    .lead-paragraph {
+        font-size: 1.125rem;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .visual-overlay {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 20px;
+    }
+    
+    .stat-bubble {
+        min-width: 100px;
+        padding: 12px 16px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
     }
 }
 

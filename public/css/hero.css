@@ -157,27 +157,32 @@
     justify-content: center;
 }
 
+.time-separator {
+    font-size: 1.8rem;
+    font-weight: 300;
+    opacity: 0.9;
+    color: white;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    margin: 0;
+    position: relative;
+    top: -16px;
+}
+
 .time-label {
     font-size: 0.85rem;
     opacity: 0.95;
     margin-top: 8px;
     font-weight: 500;
-    color: #1a1a1a;
+    color: white;
     text-align: center;
     white-space: nowrap;
-}
-
-.time-separator {
-    font-size: 1.8rem;
-    font-weight: 300;
-    opacity: 0.9;
-    color: #1a1a1a;
-    line-height: 1;
-    align-self: flex-start;
-    margin-top: 14px;
-    flex-shrink: 0;
-    width: 12px;
-    text-align: center;
 }
 
 /* Mobile responsive hero */
@@ -218,13 +223,15 @@
     
     .time-separator {
         font-size: 1.5rem;
-        margin-top: 10px;
         width: 10px;
+        height: 50px;
+        top: -12px;
     }
     
     .time-label {
         font-size: 0.8rem;
         margin-top: 6px;
+        color: white;
     }
 }
 
@@ -253,12 +260,14 @@
     
     .time-separator {
         font-size: 1.25rem;
-        margin-top: 8px;
         width: 8px;
+        height: 45px;
+        top: -10px;
     }
     
     .time-label {
         font-size: 0.75rem;
         margin-top: 4px;
+        color: white;
     }
 }
